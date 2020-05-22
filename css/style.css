@@ -1,0 +1,376 @@
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url(/img/paint270.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+}
+
+p {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.navbar-dark{
+    background:#333;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    min-width:100%;
+}
+
+#sidebar {
+    min-width: 240px;
+    max-width: 240px;
+    background: #ffbb33;
+    color: #fff;
+    transition: all 0.3s;
+    border-right: 1px solid #d89933;
+    border-bottom: 4px solid #d89933;
+    box-shadow: 3px 0px 1px 0px rgba(199,135,6,1);
+    
+}
+
+#sidebar.active {
+    margin-left: -240px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #ffbb33;
+    text-shadow: 1px 1px 2px #222;
+   
+}
+
+.shadowz{
+    text-shadow:1px 1px 2px #222;
+}
+
+
+
+/*
+#sidebar ul.components {
+    padding: 20px 0;
+   border-bottom: 1px solid #47748b;
+}
+*/
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+    
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    text-align: center;
+    color:#fff;
+}
+
+#sidebar ul li a:hover {
+    color: #ffbb33;
+    background: #333;
+    text-shadow: 2px 2px 0px black;
+}
+
+
+/*
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+*/
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+
+a[aria-expanded="true"]{
+    color: #ffbb33 !important;
+    background: #333;
+    text-shadow: 2px 2px 0px black !important;
+}
+
+a[aria-expanded="false"]{
+    
+    background: #ffbb33;
+    color: #fff;
+    /*text-shadow: 2px 2px 0px black;*/
+}
+
+
+ul li a{
+    text-align: center;
+    
+}
+
+ul ul li a {
+    text-align: center;
+    text-shadow: 1px 2px 0px #d89933;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #ffcc44;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    /*
+    background: #333;
+    background: linear-gradient(180deg, rgba(51,51,51,1) 0%, rgba(34,34,34,1) 75%, rgba(17,17,17,1) 100%);
+    */
+    background: url(/img/paint270.jpg) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    min-width: 200px;
+}
+
+#sidebarCollapse{
+    /*top: 20px;*/
+    position: fixed;
+    z-index:1060;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES (bootstrap 768px sm )
+----------------------------------------------------- */
+.overlay{
+      width: 100vw; 
+      height: 100%;
+      padding-top: 15%;
+      /*padding-top: 25%;*/
+      transition: .5s ease;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      z-index: 3;
+      opacity:0;
+      background:#ffbb33;
+      /* text*/
+     
+          text-align: center;
+          font-weight: bolder;
+          color: #fff;
+          text-shadow:3px 3px 1px #d89933;
+      border-left:  2px solid rgb(216, 153, 51);
+      border-right: 2px solid rgb(216, 153, 51);
+      border-radius: 0.25rem;
+}
+
+
+@media (max-width: 900px) { 
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px){
+    .overlay{
+        font-size:2vw;
+    }
+}
+
+@media (min-width: 769px){
+    .overlay{
+        font-size:1.5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .overlay{
+      /*text*/
+          font-size:4vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .overlay{
+      /* text*/
+        font-size:3vw;
+        
+    }
+}
+
+
+
+
+.overlay p{
+    color: #fff;
+}
+
+#me{
+    border-radius: 90px;
+    border:1px solid #222;
+    box-shadow:1px 1px 2px #333;
+}
+
+img[src='https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png']{
+    display: none;
+    visibility: hidden;
+}
+
+.thumbnail{
+    background-color: transparent;
+    border-radius: .25rem;
+    max-width: 100%;
+    height: auto;
+    border:3px solid #ffbb33;
+    box-shadow:2px 1px 3px #111;
+}
+
+.social{
+    margin-top: 25px;
+}
+
+.social a:hover{
+    border: 0px solid black;
+    border-radius: 30px;
+    transition: all 0.33s;
+}
+
+.hide{
+	display: none;
+}
+
+.form-group{
+    font-weight: 600;
+    text-shadow:2px 2px 2px black;
+}
+
+form {
+    background-color: rgba(5,5,5,0.4);
+    border-radius: 25px;
+    padding: 25px;
+    
+}
+
+
+#Layer_1{
+    width: 22px;
+    height: 22px;
+    margin-right:4px;
+}
+
+/* ---------------------------------------------------
+                    SCROLLBAR
+----------------------------------------------------- */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: url(/img/paint270.jpg);
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /*background: #ffbb33; */
+  background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%);
+  border-radius:15px;
+  border: 1px solid #333;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%);
+}

@@ -1,0 +1,78 @@
+nav{
+    background-color: #222;
+}
+
+nav li a:hover{
+    text-shadow: 2px 2px 6px rgb(200,50,150);
+}
+
+.footer{
+    background-color: #222;
+}
+
+@media all and (max-width: 750px) {
+/* CSS rules here for screens lower than 750px  
+    Samsung galaxy J3 (2016)::
+            Resolution:   720 x 1280 px
+                        width x height       */
+    a h3{
+        font-size:13px;
+        color:#f0ad4e;
+	    text-shadow: 2px 1px #ff3030;
+	    font-family: 'Montserrat', sans-serif;
+	    font-weight: bold;
+    }
+    
+    nav li{
+        height: 2.5em;
+    }
+    
+    .footer{
+        font-size: 10px;
+        height:3em;
+    }
+    
+    .footer div{
+        margin-right:5em;
+    }
+    
+    .img-fluid{ /* .social img */ 
+         min-width:15px;
+         height:auto;
+    }
+    
+    #btn-dropdown{
+        font-size: 10px;
+       /* height:2m;*/
+    }
+    
+    .dropdown-toggle:hover{
+       /* border: 2px rgba(75,200,200,0.5);*/
+       
+    }
+}
+
+@media all and (max-width:575px){
+        #gallery{
+            margin-top: 5em;
+            margin-left:25px;
+            margin-right:25px;
+        }
+    }
+    
+#works:hover{
+    border: 8px solid pink;
+}
+
+.overlay{
+  width: 100px;
+  height: 50px;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  background: red;
+  z-index: 2;
+}
