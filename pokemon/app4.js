@@ -54,10 +54,10 @@
     imageObj3.src = 'balls/ball01.png';
 
 //___SOUNDS__________________________
-    var paddlevsball = new Audio('../sounds/padvball.wav');
-    var soundCharizard = new Audio('../sounds/charizard.wav');
-    var soundBlastoise = new Audio('../sounds/blastoise.wav');
-    var ballblock = new Audio('../sounds/blop.wav');
+    var paddlevsball = new Audio('/sounds/padvball.wav');
+    var soundCharizard = new Audio('/sounds/charizard.wav');
+    var soundBlastoise = new Audio('/sounds/blastoise.wav');
+    var ballblock = new Audio('/sounds/blop.wav');
 
 //___CALL FUNCTIONS___________________
 
@@ -214,32 +214,7 @@ $(document).keydown(onKeyDown2);
 
 $(document).ready(function() {
     var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', '../sounds/lastbattle.mp3');
+        audioElement.setAttribute('src', '/sounds/lastbattle.mp3');
         audioElement.setAttribute('autoplay', 'autoplay');
         audioElement.play(); 
-/*
-    $("#p1bear").on('click',function(){
-      imageObj1.src = 'players/p1/bear.png';
-    });
- 
-    $("#p1pikachu").on('click',function(){
-      imageObj1.src = 'players/p1/pikachu.png';
-    });
-
-    $("#p1wizard").on('click',function(){
-      imageObj1.src = 'players/p1/wizard.png';
-    });
-
-    $("#p2dwarf").on('click',function(){
-      imageObj2.src = 'players/p2/dwarfundead.png';
-    });  
-
-    $("#p2alien").on('click',function(){
-      imageObj2.src = 'players/p2/alien.png';
-    });
-  
-    $("#p2wizard").on('click',function(){
-      imageObj2.src = 'players/p2/wizard.png';
-    });       
-    */
 });
