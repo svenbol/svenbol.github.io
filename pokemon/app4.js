@@ -54,10 +54,13 @@
     imageObj3.src = 'balls/ball01.png';
 
 //___SOUNDS__________________________
-    var paddlevsball = new Audio('/sounds/padvball.wav');
-    var soundCharizard = new Audio('/sounds/charizard.wav');
-    var soundBlastoise = new Audio('/sounds/blastoise.wav');
-    var ballblock = new Audio('/sounds/blop.wav');
+ // var audioContext = new AudioContext(){
+      var paddlevsball = new Audio('/sounds/padvball.wav');
+      var soundCharizard = new Audio('/sounds/charizard.wav');
+      var soundBlastoise = new Audio('/sounds/blastoise.wav');
+      var ballblock = new Audio('/sounds/blop.wav');
+ // }
+    
 
 //___CALL FUNCTIONS___________________
 
@@ -84,12 +87,11 @@ function init() {
   context.font='30px "arial" ';
   
   var background = new Image();
-  background.src = "bgs/bg01.png";
+    background.src = "bgs/bg01.png";
   
   background.onload = function(){
      context.drawImage(background,0,0); 
   }
-  
       
   player1 = new Player(block_x,block_y,block_w,block_h);
   player2 = new Player(block_x2,block_y2,block_w,block_h);

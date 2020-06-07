@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>OrbitControls app</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<script src="https://threejs.org/build/three.min.js"></script>
+		<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+		<!--<script src="https://threejs.org/examples/js/loaders/FBXLoader.js"></script>-->
+		<!--<script src="loaders/GLTFLoader.js"></script>-->
+		<script src="js/THREEx.KeyboardState.js"></script>
+
+
+		<style>
+			canvas{
+
+			}
+
+			body{
+				/* Right Click Disable */
+					-webkit-touch-callout: none;
+				    -webkit-user-select: none;
+				    -khtml-user-select: none;
+				    -moz-user-select: none;
+				    -ms-user-select: none;
+				    user-select: none;
+			    
+				line-height: 0.7;
+				cursor: url('cursor/crosshair.svg',auto);
+
+				text-shadow: 1px 1px 1px black;
+			}
+
+			p{
+				max-width: 400px;
+				padding-left: 5px;
+			}
+
+			.show{
+				display: block;
+				visibility: visible;
+			}
+
+			.hide{
+				display: none;
+				visibility: hidden;
+			}
+
+			#chatDiv{
+				width: 420px;
+				height: 180px;
+			}
+
+			#chatBox{
+				width: 100%;
+				height: 180px;
+				/*
+				position: absolute;
+				bottom: 0px;
+				left: 5px;
+				font-size: 11px;
+				padding: 5px;
+				background-color: rgba(1,1,1,0.6);
+				border-top-right-radius: 25px;
+				*/
+				
+			}
+			/*
+			#chatBoxInput{
+				display: block;
+				bottom: 0px;
+			}
+			*/
+			form{
+				display: block;
+				bottom: 0px;
+			}
+
+			#divv{
+				width: 90px;
+				margin: 0 auto;
+			}
+
+			#chatBoxToggle{
+				background-color: rgba(1,1,1,0.6);
+				border-color: rgb(250,1,125);
+				border-radius: 25px;
+				font-weight: 400;
+				text-align: center;
+				width: 90px;
+				
+			}
+
+			h6{
+				text-align: center;
+				font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+			}
+
+			svg{
+				height: 15px;
+				float: right;
+			}
+
+			#rightControls{
+				float:right;
+				text-align: right;
+			}
+
+			canvas{
+				cursor: ('cursor/crosshair.svg');
+			}
+
+			::-webkit-scrollbar{
+				width: 0px;
+			}
+		</style>
+	</head>
+<body>
+<script type="module">
+	import {GLTFLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/examples/jsm/loaders/GLTFLoader.js';
+
+
+/* INITS */
+
+	var body = document.getElementsByTagName('body'); 	
+	var canvas = document.getElementsByTagName('canvas');
+		canvas.id = 'canvass';
+	var scene = new THREE.Scene();
+		scene.fog = new THREE.Fog( 0xbfa0ff, 420, 1200 );
+
+	var camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1200); 
+		// objects voorbij 1200 fuck it 
+		// big object ( bomen , bergen ) voorbij 1200 fuck it 
+	var renderer = new THREE.WebGLRenderer({antialias:true});
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		document.body.appendChild(renderer.domElement);
+
+	var clock = new THREE.Clock();
+	var keyboard = new THREEx.KeyboardState();
+	var jumpHeight = 75;
+	var boolFly = false;
+
+	//document.style.cursor = url('cursor/crosshair.svg');
+
+	var userOnMobileBrowser = ''; // bool: true if mobile
+
+
+	/* MOBILE_CHECK */
+		/*
+		if (navigator.userAgent.match(/Android/i) 
+                || navigator.userAgent.match(/webOS/i) 
+                || navigator.userAgent.match(/iPhone/i)  
+                || navigator.userAgent.match(/iPad/i)  
+                || navigator.userAgent.match(/iPod/i) 
+                || navigator.userAgent.match(/BlackBerry/i) 
+                || navigator.userAgent.match(/Windows Phone/i)) { 
+                userOnMobileBrowser = true; 
+            } else { 
+                userOnMobileBrowser = false; 
+            }
+		*/
+	/* CONTROL INITS -->commented */
+		//var controls = new THREE.OrbitControls(camera, renderer.domElement);
+		//scene.add(controls.getObject());
+	/* RAYCASTER INITS -->commented */
+		//var raycaster = new THREE.Raycaster();
+		//var mouse = new THREE.Vector2();
+	/* SOUND INITS */
+		var soundTransform = new sound("sound/floep.mp3");
+		var soundPickUp = new sound("sound/pickup.mp3");
+		var soundDrop = new sound("sound/drop.mp3");
+
+	/* FLOOR - Plane - Vertex */
+		var planeGeom = new THREE.PlaneGeometry( 3600, 1000, 100, 100 );
+		planeGeom.rotateX( - Math.PI / 2 );
+		for ( var i = 0, l = planeGeom.vertices.length; i < l; i ++ ) {
+		var vertex = planeGeom.vertices[ i ];
+			vertex.x += Math.random() * 20 - 10;
+			vertex.y += Math.random() * 2;
+			vertex.z += Math.random() * 20 - 10;
+		}
+		for ( var i = 0, l = planeGeom.faces.length; i < l; i ++ ) {
+			var face = planeGeom.faces[ i ];
+			face.vertexColors[ 0 ] = new THREE.Color().setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
+			face.vertexColors[ 1 ] = new THREE.Color().setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
+			face.vertexColors[ 2 ] = new THREE.Color().setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
+		}
+		material = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors } );
+		var planeMesh = new THREE.Mesh( planeGeom, material );
+		scene.add( planeMesh ); 
+		
+		/* end init */	
+	
+	/* Scene - Background - Skybox */
+			var texturez = new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/d/d4/HH_901_and_HH_902_in_the_Carina_nebula_%28captured_by_the_Hubble_Space_Telescope%29.jpg' );
+				texturez.wrapS = THREE.RepeatWrapping;
+				texturez.wrapT = THREE.RepeatWrapping;
+				texturez.repeat.set( 1, 1 );
+
+				scene.background = texturez;
+			
+	/* Box - Gradient Faces */
+			var geom = new THREE.BoxGeometry(24, 20, 15);
+			var geom2 = new THREE.BoxGeometry(8 , 22, 6);
+			var geom3 = new THREE.BoxGeometry(18,6,6);
+			var faceIndices = ['a', 'b', 'c'];
+			var vertexIndex, point;
+			//var textuur = new THREE.TextureLoader().load('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRfsuEcVumV2mxJrftpO1Ufe3XRhg4A6vpBSCsIkkLz8FKMWVgT');
+			var textuur = new THREE.TextureLoader().load('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAScQw27EzUaTAeORwIi6U_SHJ9wer-0N4XlgKpBx7F1vFZOkb&usqp=CAU');
+			var materialBox = new THREE.MeshBasicMaterial({map:textuur});
+			/*
+			geom.faces.forEach(function(face) {
+				for (var i = 0; i < 3; i++) {
+					vertexIndex = face[ faceIndices[ i ] ];
+					point = geom.vertices[vertexIndex];
+					color = new THREE.Color(
+					    point.x + 2,
+					    point.y + 1,
+					    point.z + 0.5
+					);
+					face.vertexColors[ i ] = color;
+					
+				}
+			});
+
+			var mat = new THREE.MeshBasicMaterial({
+				vertexColors: THREE.VertexColors
+			});
+			*/
+			var charBody = new THREE.Mesh(geom, materialBox);
+			var linkerbeen = new THREE.Mesh(geom2,materialBox);
+			var rechterbeen = new THREE.Mesh(geom2,materialBox);
+			var linkerarm = new THREE.Mesh(geom3,materialBox);
+			var rechterarm = new THREE.Mesh(geom3,materialBox);
+
+			scene.add(charBody);
+			scene.add(linkerbeen);
+			scene.add(rechterbeen);
+			scene.add(linkerarm);
+			scene.add(rechterarm);
+			charBody.position.set(0,-15,0);
+			linkerbeen.position.set(-8,-20,0);
+			rechterbeen.position.set(8,-20,0);
+			linkerarm.position.set(-16,6,0);
+			rechterarm.position.set(16,6,0);
+			
+	/* Sphere - Image Wrap */
+			var geometry = new THREE.SphereGeometry( 10, 50, 50 );
+			var texture = new THREE.TextureLoader().load('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAScQw27EzUaTAeORwIi6U_SHJ9wer-0N4XlgKpBx7F1vFZOkb&usqp=CAU');
+			var texture2 = new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/d/d4/HH_901_and_HH_902_in_the_Carina_nebula_%28captured_by_the_Hubble_Space_Telescope%29.jpg');
+			var texture3 = new THREE.TextureLoader().load('https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/The_Spitzer_Space_Telescope%27s_view_of_W40.jpg/800px-The_Spitzer_Space_Telescope%27s_view_of_W40.jpg');
+			var material = new THREE.MeshBasicMaterial({ map:texture });
+			// var pickAble ----------------------------------------------------------------------------------------------------[ TODO ]
+
+			var sphere = new THREE.Mesh( geometry, material );
+				
+			scene.add(sphere);
+			sphere.position.set(0,50,0);// (0,5,0) = SPHERE tegen de FLOOR
+
+			charBody.add(camera);
+
+			camera.position.set(0,70,140); // 0 hoger:10  achteruit70
+			//camera.lookAt( sphere.position.z -50);
+
+	/* GLTFLoader */
+		
+		const gltfLoader = new GLTFLoader();
+		const url = 'models/speler.gltf';
+			gltfLoader.load(url,(gltf) => {
+				const root = gltf.scene;
+
+				scene.add(root);
+				var a = 25;
+				gltf.scene.scale.set(a,a,a);
+				gltf.scene.position.set(-20,0,0);
+				
+				
+			});
+	
+	/* Line Shizzle */
+			var lineMaterialRed = new THREE.LineBasicMaterial({color:0xff0000});		// 
+			var lineMaterialRedLight = new THREE.LineBasicMaterial({color:0xaa0000});
+			var lineMaterialGreen = new THREE.LineBasicMaterial({color:0x00ff00});		// 
+			var lineMaterialGreenLight = new THREE.LineBasicMaterial({color:0x00aa00});	
+			var lineMaterialBlue = new THREE.LineBasicMaterial({color:0x0000ff});		// 
+			var lineMaterialBlueLight = new THREE.LineBasicMaterial({color:0x0000aa});
+
+			var pointsX = [];
+				pointsX.push( new THREE.Vector3( -50, 0, 0 ) );
+				pointsX.push( new THREE.Vector3( 50, 0, 0 ) );
+
+			var pointsY = [];
+				pointsY.push( new THREE.Vector3( 0, -50, 0 ) );
+				pointsY.push( new THREE.Vector3( 0, 65, 0 ) );
+
+			var pointsZ = [];
+				pointsZ.push( new THREE.Vector3( 0, 0, 0 ) );
+				pointsZ.push( new THREE.Vector3( 0, 0, 0 ) );
+			
+			var geometryX = new THREE.BufferGeometry().setFromPoints( pointsX );
+			var geometryY = new THREE.BufferGeometry().setFromPoints( pointsY );
+			var geometryZ = new THREE.BufferGeometry().setFromPoints( pointsZ );
+
+			var lineX = new THREE.Line( geometryX, lineMaterialRed );
+			var lineY = new THREE.Line( geometryY, lineMaterialGreen );
+			var lineZ = new THREE.Line( geometryZ, lineMaterialBlue );
+
+			scene.add( lineX );
+			scene.add( lineY );
+			scene.add( lineZ );
+
+	/* div Controls */
+		var divControls = document.createElement('div');
+			divControls.id = 'divv';
+			divControls.style.position = 'absolute';
+			divControls.style.top = 10 + 'px';
+			divControls.style.left = 10 + 'px';
+			divControls.style.backgroundColor = 'rgba(1,1,1,0.6)';
+			divControls.style.color = 'white';
+			divControls.style.fontSize = 12 +'px';
+			divControls.style.whiteSpace = 'pre';
+			divControls.style.padding = 5 + 'px';
+			divControls.style.borderRadius = 25 + 'px';
+		
+				var ul = document.createElement('div');
+					ul.style.class = 'show';
+					
+					//divControls.style.zIndex = 1;
+				var titel = document.createElement('h6');
+					titel.innerHTML = "Controls";
+					//titel.style.id = 'collapseControls'
+
+				var p1 = document.createElement('p');
+					p1.innerHTML = "<span id='leftControls'>Fly:</span><span id='rightControls'> Space </span>";
+
+				var p2 = document.createElement('p');
+					p2.innerHTML = "<span id='leftControls'>Ground:</span><span id='rightControls'> Caps </span>";
+
+				var p3 = document.createElement('p');
+					p3.innerHTML = "<span id='leftControls'>Forward:</span><span id='rightControls'> Z </span>";
+
+				var p4 = document.createElement('p');
+					p4.innerHTML = "<span id='leftControls'>Backward:</span><span id='rightControls'> S </span>";
+
+				var p5 = document.createElement('p');
+					p5.innerHTML = "<span id='leftControls'>Rot-Left:</span><span id='rightControls'> Q </span>";
+
+				var p6 = document.createElement('p');
+					p6.innerHTML = "<span id='leftControls'>Rot-Right:</span><span id='rightControls'> D </span>";
+
+				var p7 = document.createElement('p');
+					p7.innerHTML = "<span id='leftControls'>Mov-Left:</span><span id='rightControls'> A </span>";
+
+				var p8 = document.createElement('p');
+					p8.innerHTML = "<span id='leftControls'>Mov-Right:</span><span id='rightControls'> E </span>";
+
+				var p9 = document.createElement('p');
+					p9.innerHTML = '<span id="leftControls">Action:</span><span id="rightControls"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve"><polygon fill="#FFFFFF" points="8.2,20.9 8.2,4.9 19.8,16.5 13,16.5 12.6,16.6 "/><polygon fill="#FFFFFF" points="17.3,21.6 13.7,23.1 9,12 12.7,10.5 "/><rect x="12.5" y="13.6" transform="matrix(0.9221 -0.3871 0.3871 0.9221 -5.7605 6.5909)" width="2" height="8"/><polygon points="9.2,7.3 9.2,18.5 12.2,15.6 12.6,15.5 17.4,15.5 "/></svg> </span>';
+				var p10 = document.createElement('p');
+					p10.innerHTML= "<span id='leftControls'>Pick Up:</span><span id='rightControls'> F </span>";
+
+				var p11 = document.createElement('p');
+					p11.innerHTML = "<span id='leftControls'>Rm Orbs:</span><span id='rightControls'> R </span>";
+				
+
+				var hr = document.createElement('hr');
+					hr.style.borderColor = 'white';
+
+				var hr2 = document.createElement('hr');
+					hr2.style.borderColor = 'white';
+
+				var hr3 = document.createElement('hr');
+					hr3.style.borderColor = 'white';
+
+					ul.appendChild(hr3);
+					ul.appendChild(p1);
+					ul.appendChild(p2);
+					ul.appendChild(hr);
+					ul.appendChild(p3);
+					ul.appendChild(p4);
+					ul.appendChild(p5);
+					ul.appendChild(p6);
+					ul.appendChild(p7);
+					ul.appendChild(p8);
+					ul.appendChild(hr2);
+					ul.appendChild(p9);
+					ul.appendChild(p10);
+					ul.appendChild(p11);
+
+		divControls.appendChild(titel);
+		divControls.appendChild(ul);
+
+		document.body.appendChild(divControls);
+
+	/* div ChatBox */
+		var chatDiv = document.createElement('div');
+			chatDiv.id = 'chatDiv';
+			chatDiv.style.position = 'absolute';
+			chatDiv.style.left = 10 + 'px';
+			chatDiv.style.bottom = 10 +'px';
+			chatDiv.style.color = 'white';
+			//chatDiv.style.padding = 10 + 'px';
+
+		var chatMessages = document.createElement('div');
+
+		var chatBox = document.createElement('div');
+			chatBox.id = 'chatBox';
+			chatBox.style.position = 'absolute';
+			chatBox.style.bottom = 0 + 'px';
+			chatBox.style.fontSize = 12 + 'px';
+			chatBox.style.whiteSpace = 'pre';
+			chatBox.style.padding = 8 + 'px';
+			chatBox.style.backgroundColor = 'rgba(1,1,1,0.6)';
+			chatBox.style.borderRadius = 25 +'px';
+
+			var chatBoxToggle = document.createElement('div');
+				chatBoxToggle.id = 'chatBoxToggle';
+				chatBoxToggle.style.position ='absolute';
+				chatBoxToggle.left = 10 + 'px';
+				chatBoxToggle.style.top = -40+ 'px';
+				chatBoxToggle.fontSize = 11 + 'px';
+				chatBoxToggle.backgroundColor = 'rgba(1,1,1,0.6)';
+				chatBoxToggle.borderRadius = 25 + 'px';
+
+				chatBoxToggle.backgroundColor = 'red';
+				var titelChat = document.createElement('h6');
+					titelChat.innerHTML = 'Chat';
+					//titelChat.style.padding =  + 'px';
+				
+				chatBoxToggle.style.lineheight = 0.7;
+				//chatBoxToggle.style.padding = 10 + 'px';
+				chatBoxToggle.style.paddingTop = 5 + 'px';
+				chatBoxToggle.style.paddingBottom = 5 + 'px';
+				chatBoxToggle.style.fontWeight = 400;
+				chatBoxToggle.style.fontStyle = 'sans-serif';
+
+				chatBoxToggle.appendChild(titelChat);
+
+		var chatBoxInput = document.createElement('input');
+			chatBoxInput.id = 'chatBoxInput';
+			chatBoxInput.type = 'text';
+			chatBoxInput.style.color = 'white';
+			chatBoxInput.name = 'chatMsg';
+			chatBoxInput.autocomplete ='off';
+			//chatBoxInput.style.display = 'block';
+			chatBoxInput.style.position = 'absolute';
+			chatBoxInput.style.backgroundColor = 'rgba(1,125,155,0.2)';
+			chatBoxInput.style.border = '2px solid rgba(55,25,155,0.6)';
+			chatBoxInput.style.borderRadius = '25px';
+			chatBoxInput.classList.remove("hover"); 
+			chatBoxInput.style.width = '95%';
+			chatBoxInput.style.left = '10px';
+			chatBoxInput.style.right = '10px';
+			chatBoxInput.style.bottom ='5px';
+			chatBoxInput.style.outline = '0px solid rgba(0,0,0,0)';
+			chatBoxInput.style.paddingLeft = '5px';
+			chatBoxInput.placeholder = 'Bolle: Write message here...';
+
+			// MESSAGES
+			var messages = [];
+			function sendMessage(){
+				var msg = document.createElement('p');
+					msg.style.fontSize = '12px';
+					msg.style.lineheight = 0.7;
+					msg.style.margin = 0;
+					msg.style.marginTop = '9px';
+				var sender = document.createElement('span');
+					sender.style.color = 'rgb(155,25,55)';
+					sender.innerHTML = '<i><b>Username : </b></i>';
+
+				if(chatBoxInput.value != ""){
+					msg.innerHTML = sender.innerHTML + chatBoxInput.value;
+					console.log('chatboxchildren: '  + chatBox.children.length);
+				
+					messages.push(msg);
+					chatBox.appendChild(msg);
+				}
+				
+				if(chatBox.children.length >= 10) {/*
+					var oldMessage = document.querySelectorAll("p:nth-of-type(1)");
+						oldMessage*/
+						chatBox.removeChild(chatBox.childNodes[1]);
+				}
+
+				chatBoxInput.value ='';
+				//chatBoxInput.blur();
+				chatBoxInput.style.bottom -='7px';
+				chatBox.scrollTop = chatBox.scrollHeight;
+		
+			}
+			
+			chatBoxInput.addEventListener('keyup',function(e){
+				if(e.keyCode == "13" && chatBool){
+					sendMessage();
+					console.log('chatBool + enter : message send');
+				}
+			});
+
+		chatBox.appendChild(chatBoxInput); // geen form gebruiken = pagina refresh 
+		chatDiv.appendChild(chatBoxToggle);
+		chatDiv.appendChild(chatBox);
+		document.body.appendChild(chatDiv);
+	
+	/* Pickable Object */
+		
+		var pickObjGeom = new THREE.BoxGeometry(2,45,1);
+		var pickObjText = new THREE.TextureLoader().load('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAScQw27EzUaTAeORwIi6U_SHJ9wer-0N4XlgKpBx7F1vFZOkb&usqp=CAU');
+		var pickObjMat = new THREE.MeshBasicMaterial({map:pickObjText});
+
+		var pOG = new THREE.BoxGeometry(24,12,18);
+		var pOT = new THREE.TextureLoader().load('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSAScQw27EzUaTAeORwIi6U_SHJ9wer-0N4XlgKpBx7F1vFZOkb&usqp=CAU');
+		var pOM = new THREE.MeshBasicMaterial({map:pOT});
+
+
+		var pickObj = new THREE.Mesh(pickObjGeom,pickObjMat);
+		var pO = new THREE.Mesh(pOG,pOM);
+
+		pickObj.add(pO);
+		pO.position.y = 30;
+
+		sphere.position.x = 50;
+		sphere.position.z = 50;
+
+		scene.add(pickObj);
+
+	/* RayCaster - MousePicking (3D objects , over X,Y coords) */
+		/*function onMouseMove( event ) {
+			// calculate mouse position in normalized device coordinates
+			// (-1 to +1) for both components
+
+			mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+			mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+		}*/
+			var raycaster = new THREE.Raycaster();
+			var mouse = new THREE.Vector2();
+			var plane = new THREE.Plane();
+			var planeNormal = new THREE.Vector3();
+			var point = new THREE.Vector3();
+
+			var controls = new THREE.OrbitControls(camera,renderer.domElement);
+				controls.enabled = false;
+
+
+		var delta;// = clock.getDelta(); // seconds.
+		var moveDistance;// = 200 * delta; // 200 pixels per second
+		var rotateAngle;// = Math.PI / 2 * delta;   // pi/2 radians (90 degrees) per second
+
+	/* Attack if weapon */
+		var swingDirX = 0.5;
+		var swingDirZ = 0.5;
+
+
+		function attack(){
+			if(holdingBool == true){
+				var rot = pickObj.quaternion;
+				console.log('rotX: ' + rot.x + 'rotZ: ' + rot.z);
+
+				console.log(rotateAngle);
+				//swingDirX = rotateAngle;
+				//swingDirZ = rotateAngle;
+
+				//if(rot.x <= 0.15 || rot.x >= 0.38) swingDirX*=-1;
+				if(rot.z <= 0.39 || rot.z >= 0.76) swingDirZ*=-1;
+
+				//pickObj.rotateX(swingDirX);
+				pickObj.rotateZ(swingDirZ);
+			}
+		}
+
+	/* Yellow Object on Mouseclick */
+		function getPoint(event) {
+		  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+		  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+		  planeNormal.copy(camera.position).normalize();
+		  plane.setFromNormalAndCoplanarPoint(planeNormal, scene.position);
+		  raycaster.setFromCamera(mouse, camera);
+		  raycaster.ray.intersectPlane(plane, point);
+		}
+
+		//setpoint inits
+		var drawPoint;
+		var arrayPoints = [];
+
+		function setPoint() {
+		  drawPoint = new THREE.Mesh(new THREE.SphereBufferGeometry(10, 8, 8), new THREE.MeshBasicMaterial({
+		    color: "yellow",
+		    wireframe: true
+		  }));
+		  //drawPoint.position.copy(sphere);
+		  drawPoint.position.x = sphere.position.x;
+		  drawPoint.position.y = 10;
+		  drawPoint.position.z = sphere.position.z;
+		  /* console log */
+		  /*
+		  	  console.log("-----------------------------------------");
+
+			  console.log("Mouse:  (X:" + point.x.toFixed(0) + ") (Y:" + point.y.toFixed(0) + ")     "+
+			  			"Sphere: (X:" + drawPoint.position.x.toFixed(0) + ") (Y:" + drawPoint.position.y + ") (Z:" + drawPoint.position.z.toFixed(0) +")     " + 
+			  			"Player: (X:" + sphere.position.x.toFixed(0) + ") (Y:" + sphere.position.y + ") (Z:" + sphere.position.z.toFixed(0) + ")      "+
+			  			"Camera: (X:" + camera.position.x.toFixed(0) + ") (Y:" + camera.position.y.toFixed(0) + ") (Z:" + camera.position.z.toFixed(0) + ")");
+			*/
+
+			console.log("Sphere: (X:" + drawPoint.position.x.toFixed(0) + ") (Y:" + drawPoint.position.y + ") (Z:" + drawPoint.position.z.toFixed(0) + ")" );
+			console.log("Sphere: X+W = " + (drawPoint.position.x+10).toFixed(0) + ") (Y+H = " + (drawPoint.position.y+10).toFixed(0) + ") (Z+D = " + (drawPoint.position.z+10).toFixed(0)+ ")");
+		  scene.add(drawPoint);
+		  arrayPoints.push(drawPoint);
+		}
+
+		function onMouseDown(event) {
+		  getPoint(event);
+		  setPoint();
+		  attack();
+		}
+
+		function onMouseMove(event) {
+		  getPoint(event);
+		  setPoint();
+		}
+	
+	/* Mouse Zoom */
+		function zoom(event) {		
+			//document.addEventListener("onwheel",zoom);  <- IN RENDER
+		  if(event.deltaY<0){ // deltaY = -125 scrolldown
+			camera.fov -=0.75;
+			console.log("boolFLy--: " + boolFly);
+			if(boolFly) camera.position.set(0,90,180);
+			else camera.position.set(0,camera.fov*1.5,camera.fov*2);
+			//camera.updateProjectionMatrix();
+			//console.log("- :: fov:" + camera.fov + " y:"+ camera.position.y + " z:" + camera.position.z);
+		  }
+		  if(event.deltaY>0){ // deltaY = 125 scrollup
+			camera.fov += 0.75;
+			console.log("boolFLy++: " + boolFly);
+			if(boolFly) camera.position.set(0,90,180);
+			else camera.position.set(0,camera.fov*1.5,camera.fov*2);
+			//camera.updateProjectionMatrix();
+			//console.log("+ :: fov:" + camera.fov + " y:" + camera.position.y + " z:" + camera.position.z);
+		  }
+		  camera.updateProjectionMatrix();
+		}
+
+	/* ALLE OBJECTEN geINIT , in SCENE: interactions met elkaar mogen vanaf hier */
+		//sphere.add(lineX);
+		//sphere.add(lineY);
+		//sphere.add(lineZ);
+		sphere.add(charBody);
+		charBody.add(linkerbeen);
+		charBody.add(rechterbeen);
+		charBody.add(linkerarm);
+		charBody.add(rechterarm);
+
+// EVENT LISTENERS 'after Inits' , 'before Render'		
+
+	/* controlMenu Visible / Invisible */
+		var get = 1;
+
+		divControls.addEventListener("click", function(){
+
+			if(get > 0){
+				ul.style.display = 'none';
+				ul.style.visibility = 'hidden';
+				ul.style.class = 'hide';
+				console.log('getal groter dan 0');
+			} 
+			if(get < 0){
+				ul.style.display = 'block';
+				ul.style.visibility = 'visible';
+				ul.style.class = 'show';
+				console.log('getal kleiner dan 0');
+			}
+			get *=-1;
+		});
+
+	/* chatBox Visible / Invisible */ 
+		var get2 = 1;
+		chatBoxToggle.addEventListener('click',function(){
+			if(get2 > 0){
+				chatBox.style.display = 'none';
+				chatBox.style.visibility = 'hidden';
+				chatBoxToggle.style.top = 140+'px';
+				//chatBoxToggle.style.bottom = 1 + 'px';
+				//chatBoxToggle.style.top = 0 + 'px';
+				//chatBox.style.class = 'hide';
+			}
+			if(get2 < 0){
+				chatBox.style.display ='block';
+				chatBox.style.visibility = 'visible';
+				chatBoxToggle.style.top = -40+ 'px';
+				//chatBoxToggle.style.top = -40 + 'px';
+			}
+			/*
+			if(chatBox.style.display == "none") chatBox.class ='show';
+			if(chatBox.style.display == "block") chatBox.class ='hide';
+			console.log(chatBox.style.class);
+			*/
+			get2 *=-1;
+		});
+
+	/* chatBoxInput - FocusIn - FocusOut */ 
+		var chatBool = false;
+		chatBoxInput.addEventListener('focusin',function(){
+			chatBool = true;
+			//console.log(chatBool);
+		});
+		chatBoxInput.addEventListener('focusout',function(){
+			chatBool = false;
+			//console.log(chatBool);
+		});
+
+
+var getal;
+var holdingBool = false;
+
+/* Render Render */
+function render() {
+	requestAnimationFrame(render);
+	renderer.render(scene, camera);
+
+	delta = clock.getDelta(); // seconds.
+	//moveDistance = 150 * delta; // 200 pixels per second
+	rotateAngle = Math.PI / 2 * delta;   // pi/2 radians (90 degrees) per second
+
+	// camera Modes + movedistance
+		if(!boolFly){			//touchground
+			if(camera.fov > 66) camera.fov = 66;
+			if(camera.fov < 57) camera.fov = 57;
+			if(camera.position.y > 100) camera.position.y = 100;
+			if(camera.position.y < 85) camera.position.y = 85;
+			if(camera.position.z > 132) camera.position.z = 132;
+			if(camera.position.z < 114) camera.position.z = 114;
+			moveDistance = 200 * delta;
+		}else{					//flying
+			if(camera.fov < 25) camera.fov = 25;
+			if(camera.fov > 33) camera.fov = 33;
+			moveDistance = 300 * delta;
+		}
+
+	// add EventListeners
+		document.body.onwheel = zoom;
+		document.addEventListener('contextmenu', function(event) {event.preventDefault();}, true);
+		document.addEventListener("keyup", removeLast,false);
+
+	// pickable object
+		/* Player */
+		// var sw en sd mogen uit render
+		var sW = 20;	// x
+		var sD = 20;	// z
+		var sX = sphere.position.x -sW/2;
+		var sZ = sphere.position.z - sD/2;
+		var sXx = sphere.position.x + sW/2;
+		var sZz = sphere.position.z + sD/2;
+
+		/* pickObj */
+		// var ow en od mogen uit render
+		var oW = 35;	// x
+		var oD = 35;	// z
+		var oX = pickObj.position.x -oW/2;
+		var oZ = pickObj.position.z -oW/2;
+		var oXx = pickObj.position.x + oW/2;
+		var oZz = pickObj.position.z + oD/2;
+
+
+	// sphere bounce up/down
+		/*
+			if(sphere.position.y >= 22.6) getal = -1;
+			if(sphere.position.y <= 21) getal = 1;
+			if(sphere.position.y < 0 ) sphere.position.y *=-1;
+			//sphere.position.y += (2 * getal) * delta;
+		*/
+
+		if( keyboard.pressed("r")){ // Remove all circles
+			arrayPoints.forEach(function(drawPoint){
+				arrayPoints = [];
+				scene.remove(drawPoint);
+			});
+		}
+		
+		arrayPoints.forEach(function(drawPoint){
+			if(drawPoint.position.y >= 9.5) getal = -1;
+			if(drawPoint.position.y <= 8) getal = 1;
+
+			drawPoint.position.y += (2*getal)*delta;
+		});
+
+		function removeLast(e){
+			if(e.keyCode == 71){//g
+				arrayPoints.forEach(function(drawPoint){
+				console.log("before: " + arrayPoints);
+				arrayPoints.shift();
+				arrayPoints.dispose();
+				console.log("after: " + arrayPoints);
+				console.log(scene);
+				//scene.remove();
+				scene.updateProjectionMatrix();
+				console.log(scene);
+			});
+			}
+		}
+
+	// move forwards/backwards/left/right
+		if ( keyboard.pressed("z") && !chatBool){
+			sphere.translateZ( -moveDistance );
+		}
+			
+		if ( keyboard.pressed("s") && !chatBool){
+			sphere.translateZ(  moveDistance/2 );
+		}
+			
+		if ( keyboard.pressed("a") && !chatBool){
+			sphere.translateX( -moveDistance );
+		}
+			
+		if ( keyboard.pressed("e") && !chatBool){
+			sphere.translateX(  moveDistance );	
+		}
+
+	// rotate left/right/up/down ZOOM
+		var rotation_matrix = new THREE.Matrix4().identity();
+
+		if ( keyboard.pressed("q") && !chatBool) sphere.rotateOnAxis( new THREE.Vector3(0,1,0), rotateAngle);
+
+		if ( keyboard.pressed("d") && !chatBool) sphere.rotateOnAxis( new THREE.Vector3(0,1,0), -rotateAngle);
+		
+		window.onkeyup = function(e){
+			// CHAT disabled: fly mode , afdaal mode bruikbaar , als chat enabled , zijn deze keys blocked (goed)
+			if(!chatBool){
+				if(e.keyCode == "84"){ // keyup: [T]
+					soundTransform.play();
+					if(material.map == texture) material.map = texture2;
+					else if(material.map == texture2)material.map = texture3;
+					else if(material.map == texture3)material.map = texture;
+				} 
+
+				if(e.keyCode == 13){
+					chatBoxInput.focus();
+					console.log('!chatBool + enter :: nu focussed');
+
+				}
+
+			// FLY MODE
+				if(e.keyCode == "32"){
+					// jump is true
+					sphere.position.y += jumpHeight;
+					if(sphere.position.y >= 125) sphere.position.y = 125; // STANDARD POS 50
+
+				}
+	 			
+				if(e.keyCode == "20"){ // CAPS LOCK moveDown
+					sphere.position.y -= jumpHeight;
+					if(sphere.position.y <= 50) sphere.position.y = 50;  // 50 50
+				}
+
+				
+				if(e.keyCode == "32" && sphere.position.y == 125){
+					boolFly = true;
+					console.log("flying: activated");
+				} 
+				
+				if(e.keyCode == "20" && sphere.position.y == 50){
+					boolFly = false;
+					console.log("flying: quit");
+				} 
+				if(boolFly && e.keyCode =="32"){
+					camera.fov = 40;
+					//console.log("expected cam-fov = 30 ? ::  " + camera.fov);
+				}	
+				
+				if(boolFly == false && e.keyCode == "20" ){
+					camera.fov	= 50;
+					//console.log("expected cam-fov = 50 ? ::  " + camera.fov);
+				} 
+
+			// Pick Up Object 
+
+				if( e.keyCode == 70 && !holdingBool){
+					// playerXmin komt binnen grens || playerZmin komt binnen grens
+					if(
+						((sX >= oX) && (sX <= oXx)) && ((sZ >= oZ) && (sZ <= oZz)) 
+						|| 
+						// playerXmax binnen grens && playerZmax komt binnen grens
+						((sXx <= oXx) && (sXx >= oX)) && ((sZz <= oZz) && (sZz >= oZ))
+					){
+						linkerarm.add(pickObj);
+
+						pickObj.rotation.x = -0.85;
+
+						pickObj.position.x = -10;
+						pickObj.position.y = 10;
+						pickObj.position.z = 5;
+
+						holdingBool = true;
+						soundPickUp.play();
+						console.log('Object picked:' +  holdingBool);
+					}	
+				} else if(e.keyCode == 70 && holdingBool){
+						linkerarm.remove(pickObj);
+						scene.add(pickObj);
+						pickObj.position.x = sphere.position.x + 25;
+						pickObj.position.z = sphere.position.z + 25;
+						pickObj.rotation.x = 0;
+						pickObj.rotation.z = 0;
+						holdingBool = false;
+						soundDrop.play();
+						console.log("Object dropped");
+					}
+			}else if(chatBool){
+				if(e.keyCode == 13){
+					chatBoxInput.blur();
+					console.log('chatbool + enter :: nu niet focussed');
+				}
+			}
+			
+		} 
+	
+	// DRAW in MAP
+		document.addEventListener("mousedown", onMouseDown, false);
+		//document.addEventListener("mousemove", onMouseMove, false);
+
+	// camera zz
+}
+
+
+render();
+
+
+/* SOUND */
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
+
+function jump(){
+
+}
+
+</script>
+</body>
+</html>

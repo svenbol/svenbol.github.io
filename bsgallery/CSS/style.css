@@ -1,0 +1,492 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;}
+
+/*Home main*/
+body{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: absolute;}
+
+#navigatie {
+    width: 100%;
+    height: 60px;}
+
+#dropdown-play{
+    display: block;
+    float:left;
+    margin-left: 25px;
+    margin-top: -5px;
+    vertical-align: middle;}
+
+#dropdown-play a {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: rgba(234, 234, 234, 1);
+    text-align: center;
+    vertical-align: bottom;}
+
+a:hover {
+    color: #333;
+    /* background-color: rgba(234, 234, 234, 1); */
+    /*background-color: #ffbb33;*/
+    text-decoration: none;}
+
+#index-fix-bg{ 
+   /* height: 610px; */
+    background-image: url(../images/mainbg2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;}
+
+#bgoverlay{
+
+    background-color: rgba(240,252,245,0.5);}
+
+.call-to-action-button{
+    width: 50%; 
+    display: block;
+
+    margin: 0 auto;
+    position:  absolute;
+    top: 50%;
+    left: 25%;
+    transform: translateY(-50%);}
+
+.call-to-act-link{
+    vertical-align: middle;
+    text-align: center;    }
+
+.call-to-act-link:hover{
+
+    text-decoration: none;}
+
+.hide{
+
+    display: none;}
+
+main {
+    width: 100%;
+    height: auto;}
+
+/* head/main NAVIGATION [all pages] */ 
+nav {
+    display: block;
+    width: 100%;
+    background: #333;}
+
+.navigatie-item {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.75em 1em;
+    color: #fff;
+    border-radius: 5px;}
+
+.navigatie-item:hover {
+    background: #eaeaea;
+    color: #333;
+    transition: 0.5s;}
+
+
+/*Spanje*/
+
+.bgspanje{
+    background: #333 url(../images/Barcelona_night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;}
+
+.bgfrankrijk{
+    background: #333 url(../images/Parijs-night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;}
+
+.bgduitsland{
+    background: #333 url(../images/Cologne-night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; }
+
+section{
+    width: 100%;
+    height: 100%;}
+
+section article{
+    z-index: -1;
+    display: block;}
+
+/* GALLERY */ 
+
+.galerij-bg{
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(33,33,33,0.2);*/}
+
+/* .gallerylink{} */
+
+.gallerytitle{
+    text-shadow: 1px 2px black;
+    
+}
+
+.bg-spanje{
+    position: absolute;
+    background: #333 url(../images/Barcelona_night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+.bg-frankrijk{
+    position: absolute;
+    background: #333 url(../images/Parijs-night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+.bg-duitsland{
+    background: url(../images/Cologne-night.jpg);
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+.bg-disney{
+    background: url(https://vignette.wikia.nocookie.net/disney/images/2/20/Disneyland_Christmas_Castle.jpg);
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+.bg-efteling{
+    background: url(https://www.efteling.com/nl/-/media/images/nieuw-park/park/attractions/baron-1898/1024x576-baron-1898-homepage-cta.jpg);
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+.bg-fantasia{
+    background: url(https://travelbird.imgix.net/offer-image-c7/82536/KW6XFHOV);
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+.bg-work{
+    background: url(http://www.sixsigmatrainingfree.com/uploads/2/1/7/9/21795380/work-in-progress-wip.jpg);
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
+
+.row a .jumbotron{
+    /* bootstrap has no opacity */
+    border:0.2em solid rgba(51,51,51,0.7);}
+
+.row a .jumbotron:hover{
+    border: 0.2em solid rgba(248,170,03,0.7);
+    position: relative;}
+    
+
+/* DETAILPAGES spanje,  frankrijk ... */
+
+#showcase .bg-img {
+    position: absolute;
+    background: #333 url(../images/Barcelona_night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    z-index: -1;
+    opacity: 0.4;
+    margin-top: 81px;
+    overflow: hidden;}
+
+#showcase .bg-img-fr {
+    position: absolute;
+    background: #333 url(../images/Parijs-night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    z-index: -1;
+    opacity: 0.4;
+    margin-top: 81px;
+
+    overflow: hidden;}
+
+#showcase .bg-img-deu{
+   position: absolute;
+    background: #333 url(../images/Cologne-night.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    z-index: -1;
+    opacity: 0.4;
+    margin-top: 81px;
+
+    overflow: hidden; }
+
+.ratatouille{
+
+    vertical-align: top;}
+
+#showcase {
+
+    min-height: 450px;}
+
+.content-wrap {
+
+    text-align: center;}
+
+#showcase h1 {
+    padding-top: 100px;
+    padding-bottom: 0;
+    font-size: 5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+
+#navigatie-spanje {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    padding: 1em 0;}
+
+#Weetjes {
+    width: 60%;
+
+    background-color: #eaeaea;
+    margin: auto;
+    display: block;}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    padding-top: 10px;}
+
+#weetjes-rechts {
+    height: 20em;
+    width: 49.96%;
+    border-left: 0.5px solid black;
+    display: inline-block;
+    float: right;
+    margin-bottom: 1em;}
+
+#weetjes-links {
+    height: 20em;
+    width: 49.93%;
+    border-right: 0.5px solid black;
+    display: inline-block;
+    margin-bottom: 1em;}
+
+ul.weetjes {
+    display: block;
+    list-style-type: disc;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 30px;
+    padding-right: 5px;}
+
+hr {
+
+    width: 95%;}
+
+li.weetje {
+
+    margin-top: 1.5em;}
+
+img.kaart {
+    display: block;
+    margin: auto;}
+
+#Recepten {
+    width: 60%;
+    margin: auto;
+    background-color: #eaeaea;}
+
+#recept-links {
+    height: 50em;
+    width: 49.93%;
+    border-right: 0.5px solid black;
+    display: inline-block;
+    margin-bottom: 1em;}
+
+h3 {
+    text-align: center;
+    font-size: 1.4em;}
+
+#recept-rechts {
+    height: 50em;
+    width: 49.96%;
+    border-left: 0.5px solid black;
+    display: inline-block;
+    float: right;
+    margin-bottom: 1em;}
+
+p.ingredienten {
+
+    margin-left: 20px;}
+
+ul.ingredienten-lijst {
+    display: block;
+    list-style-type: disc;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 50px;
+    padding-right: 5px;}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;}
+
+ol li {
+    margin-top: 5px;
+    margin-right: 10px;}
+
+img.recept {
+
+    width: 200px;}
+
+img.sangria {
+    width: 90%;
+    display: block;
+    margin: auto;}
+
+img.patatas {
+    width: 90%;
+    display: block;
+    margin: auto;}
+
+p.recept {
+    margin-left: 40px;
+    margin-right: 10px;
+    margin-top: 10px;
+    line-height: 20px;}
+
+img.mousse {
+    width: 90%;
+    display: block;
+    margin: auto;}
+
+img.ratatouille {
+    width: 90%;
+    display: block;
+    margin: auto;
+    padding-top: 75px;}
+
+
+/* CONTACTpage */
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;}
+
+input[type=submit] {
+    background-color: #ffbb33;
+    color: blue;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 71.5%;
+    font-weight: bold;}
+
+input[type=submit]:hover {
+    background-color: #535353;
+    color: #eaeaea;}
+
+.container-form {
+    border-radius: 5px;
+    background-color: #eaeaea;
+    padding: 20px;}
+
+.center-div{
+
+    width: 80%;
+    display: block;
+    margin:auto;}
+
+.contactform{
+    width: 80%;
+    display: block;}
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;}
+
+#bericht{
+
+    line-height: 2.5em;}
+
+
+/* FOOTER */
+footer {
+    width: 100%;
+    height: 60px;
+    float: left;
+    color: white;
+    text-align: center;
+    display: block;
+    position: fixed;
+    bottom: 0px;}
+
+.social{
+
+    float: right;}
+
+.social a:hover{
+
+    text-decoration: none;}
+
+.social a img{
+    width: 25px;
+    margin-right: 25px;}
+    
+img[src='https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png']{
+    display:none;
+}
+.catchphrase{
+    margin-bottom: 10px;
+}

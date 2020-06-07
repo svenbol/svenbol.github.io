@@ -1,0 +1,25 @@
+img[src='https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png']{
+    display: none;
+}
+
+
+.bottom-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(2,117,216,0.5);
+  border: 2px solid rgba(2,117,216,0.5);
+  border-radius: 25px;
+  text-align: center;
+}
+
+
+.card-body{
+    line-height: 8px;
+}
+
+.card-body p{
+    line-height: 12px;
+}
