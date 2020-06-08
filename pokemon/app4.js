@@ -75,6 +75,7 @@ function playSound(url) {
      });
 }
 
+var clicked = false;
 
 function init() {
   context = $('#canvas')[0].getContext('2d');
@@ -107,11 +108,6 @@ function init() {
       
   player1 = new Player(block_x,block_y,block_w,block_h);
   player2 = new Player(block_x2,block_y2,block_w,block_h);
-
-
-  playSound("https://svenbol.github.io/pokemon/sounds/lastbattle.mp3").then(function() {
-    audio.play();
-  });
        
   setInterval('draw()', 16);
   setInterval('updateGame()',16);
@@ -158,52 +154,55 @@ function ballHitPlayer(){
 }
 
 function updateGame(){
-  // p1-update------------------------------------------------------
-  if(zKey) block_y -=play_velY;
-  else if (sKey) block_y +=play_velY;
+  if(clicked == true){
 
-  if (block_y <= 0) block_y = 0;
-  if ((block_y + block_h) >= HEIGHT) block_y = HEIGHT - block_h;
-
-  // p2-update-------------------------------------------------------
-  if (upKey) block_y2 -=play_velY;
-  else if (downKey) block_y2 +=play_velY;
-
-  if (block_y2 <= 0) block_y2 = 0;
-  if ((block_y2 + block_h) >= HEIGHT) block_y2 = HEIGHT - block_h;
-
-  // ball-update-----------------------------------------------------
-    ball_x += velX;
-    ball_y += velY;
-
-    //___PLAYER SCORES__________________
-
-      // if p2 fails to return ball
-    if(ball_x + ball_w > WIDTH ){
-        scorep1 += 1;     // p1 receives point
-        soundCharizard.play();     // p1.laugh
-
-        resetBall();      // algemeen: reset
-      }
-
-      // if p1 fails to return ball
-    if(ball_x - ball_w/2 < 0){
-        scorep2 += 1;
-        soundBlastoise.play();
-
-        resetBall();
-      } 
-
-    //____BALL POSITION (top and bottom)_____
-    if(ball_y + ball_h > HEIGHT) ballHitYBorder();
-    if(ball_y <= 0) ballHitYBorder();
-
-    //___BALL BLOCK BY PLAYER_______________
-      //player1
-        // bovenkant paddle 
-   if(ball_x + ball_w/2 < block_x+block_w &&  ball_y + ball_h/2 >= block_y && ball_y <= block_y + block_h ) ballHitPlayer();
-      //player2
-   if(ball_x + ball_w/2 > block_x2 &&  ball_y + ball_h/2 >= block_y2 && ball_y <= block_y2 + block_h ) ballHitPlayer();     
+    // p1-update------------------------------------------------------
+    if(zKey) block_y -=play_velY;
+    else if (sKey) block_y +=play_velY;
+  
+    if (block_y <= 0) block_y = 0;
+    if ((block_y + block_h) >= HEIGHT) block_y = HEIGHT - block_h;
+  
+    // p2-update-------------------------------------------------------
+    if (upKey) block_y2 -=play_velY;
+    else if (downKey) block_y2 +=play_velY;
+  
+    if (block_y2 <= 0) block_y2 = 0;
+    if ((block_y2 + block_h) >= HEIGHT) block_y2 = HEIGHT - block_h;
+  
+    // ball-update-----------------------------------------------------
+      ball_x += velX;
+      ball_y += velY;
+  
+      //___PLAYER SCORES__________________
+  
+        // if p2 fails to return ball
+      if(ball_x + ball_w > WIDTH ){
+          scorep1 += 1;     // p1 receives point
+          soundCharizard.play();     // p1.laugh
+  
+          resetBall();      // algemeen: reset
+        }
+  
+        // if p1 fails to return ball
+      if(ball_x - ball_w/2 < 0){
+          scorep2 += 1;
+          soundBlastoise.play();
+  
+          resetBall();
+        } 
+  
+      //____BALL POSITION (top and bottom)_____
+      if(ball_y + ball_h > HEIGHT) ballHitYBorder();
+      if(ball_y <= 0) ballHitYBorder();
+  
+      //___BALL BLOCK BY PLAYER_______________
+        //player1
+          // bovenkant paddle 
+     if(ball_x + ball_w/2 < block_x+block_w &&  ball_y + ball_h/2 >= block_y && ball_y <= block_y + block_h ) ballHitPlayer();
+        //player2
+     if(ball_x + ball_w/2 > block_x2 &&  ball_y + ball_h/2 >= block_y2 && ball_y <= block_y2 + block_h ) ballHitPlayer();     
+  }
 }
 
 function onKeyDown(evt) {
@@ -232,8 +231,6 @@ $(document).keyup(onKeyUp);
 $(document).keyup(onKeyUp2);
 $(document).keydown(onKeyDown2);
 
-var clicked = false;
-
 $(document).click(function() {
   if(clicked == false){
     var audioElement = document.createElement('audio');
@@ -242,4 +239,5 @@ $(document).click(function() {
         audioElement.play(); 
         clicked = true;
   }
+  document.getElementById('clickId').remove();
 });

@@ -77,7 +77,10 @@ canvas {
 }
 
 p{
+	width: 800px;
 	color: white;
+	text-align: center;
+	font-size: 28px;
 }
 
 #play{
