@@ -55,14 +55,26 @@
 
 //___SOUNDS__________________________
  // var audioContext = new AudioContext(){
-      var paddlevsball = new Audio('/sounds/padvball.wav');
-      var soundCharizard = new Audio('/sounds/charizard.wav');
-      var soundBlastoise = new Audio('/sounds/blastoise.wav');
-      var ballblock = new Audio('/sounds/blop.wav');
+      var paddlevsball = new Audio('https://svenbol.github.io/pokemon/sounds/padvball.wav');
+      var soundCharizard = new Audio('https://svenbol.github.io/pokemon/sounds/charizard.wav');
+      var soundBlastoise = new Audio('https://svenbol.github.io/pokemon/sounds/blastoise.wav');
+      var ballblock = new Audio('https://svenbol.github.io/pokemon/sounds/blop.wav');
  // }
     
 
 //___CALL FUNCTIONS___________________
+function playSound(url) {
+     return new Promise(function(resolve, reject) {   // return a promise
+         var audio = new Audio();                     // create audio wo/ src
+           audio.preload = "auto";                      // intend to play through
+           audio.autoplay = true;                       // autoplay when loaded
+           audio.onerror = reject;                      // on error, reject
+           audio.onended = resolve;                     // when done, resolve
+
+           audio.src = url;
+     });
+}
+
 
 function init() {
   context = $('#canvas')[0].getContext('2d');
@@ -95,6 +107,11 @@ function init() {
       
   player1 = new Player(block_x,block_y,block_w,block_h);
   player2 = new Player(block_x2,block_y2,block_w,block_h);
+
+
+  playSound("https://svenbol.github.io/pokemon/sounds/lastbattle.mp3").then(function() {
+    audio.play();
+  });
        
   setInterval('draw()', 16);
   setInterval('updateGame()',16);
@@ -121,6 +138,7 @@ function draw(){
   context.fillText(scorep1,250,25);
   context.fillText(scorep2,550,25);
 }
+
 
 function resetBall(){
   // ball back to center
@@ -214,9 +232,14 @@ $(document).keyup(onKeyUp);
 $(document).keyup(onKeyUp2);
 $(document).keydown(onKeyDown2);
 
-$(document).ready(function() {
+var clicked = false;
+
+$(document).click(function() {
+  if(clicked == false){
     var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', '/sounds/lastbattle.mp3');
+        audioElement.setAttribute('src', 'https://svenbol.github.io/pokemon/sounds/lastbattle.mp3');
         audioElement.setAttribute('autoplay', 'autoplay');
         audioElement.play(); 
+        clicked = true;
+  }
 });
