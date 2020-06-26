@@ -30,7 +30,7 @@ h1{
     font-style: italic;
 
     color: yellow;
-    text-shadow: 1px 1px 1px darkblue, -1px -1px 1px darkblue;
+    text-shadow: 5px 5px 1px darkblue, -5px -5px 1px darkblue;
     
     text-align: center;
 }
