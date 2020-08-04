@@ -53,8 +53,10 @@ h1{
     }
 /* HAAR */
     .haar{
-        width: 86%;
-        height: 84%;
+        /*width: 86%;*/
+        /*height: 84%;*/
+        width: 258px;
+        height: 252px;
         background-color: #7a257a;
         left: 7%;
         right: 7%;
