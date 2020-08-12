@@ -26,12 +26,12 @@
 
 //Heroku 
 
-$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-$server = "ec2-54-247-94-127.eu-west-1.compute.amazonaws.com"; //$url["host"];
-$username = "urpcpbtnnpqcuv"; // $url["user"];
-$password = "17caee8c9c7b4077b417cc5a405f8cbcdc4510a3b396bd651629aa74d4f0298b"; //$url["pass"];
-$db = "d9hlug852adfv9"; //substr($url["path"]);
+$server = "ec2-54-86-57-171.compute-1.amazonaws.com"; //$url["host"];
+$username = "inxmshuupeoyxo"; // $url["user"];
+$password = "f11bd96c6de474b35577cd6b470552c5d567efdd3e7c9599211b3d2d6c24528e"; //$url["pass"];
+$db = "d2etsfdv58166o"; //substr($url["path"]);
 
 $conn = new mysqli($server,$username,$password,$db);
 
