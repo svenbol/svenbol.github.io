@@ -12,7 +12,8 @@ if($userClicked)
 }
 else
 {
-	$fileToLoad ='gallerij';
+	//$fileToLoad ='gallerij';
+	$fileToLoad = 'upload-form';
 }
 $paginaData->content .= include_once "views/$fileToLoad.php";
 //Css toevoegen via Methods:
