@@ -365,9 +365,9 @@ form {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   /*background: #ffbb33; */
-  background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%);
+  background: black;
   border-radius:15px;
-  border: 1px solid #333;
+  border: 1px solid rgba(0,255,0,0.7);
 }
 
 /* Handle on hover */

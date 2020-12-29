@@ -11,6 +11,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed; /* Achtergrond behoud vaste pos */
   color: rgba(250,253,240,1);
+  color:rgba(200,255,255,1);
   text-decoration: none;
   padding-top: 25px;
 }
@@ -187,8 +188,9 @@ h3{
 }
 
 #foto:hover{
-	border-color:rgba(255,200,15,0.75);
-
+	border-color: #00FF00;
+  /*box-shadow: 2px 2px 2px #00FF00;*/
+  box-shadow: 2px 2px 2px #00FF33;
 }
 
 #foto img:hover{
@@ -225,8 +227,13 @@ h3{
 	border-top-right-radius: 10px;
 }
 
+#foto li{
+  width: 100%;
+}
+
 #foto li:hover{
-	background-color: rgba(180,40,100,0.75);
+	background-color: rgba(10,5,10,0.75);
+  border-width: 15px;
 	height: 220px;
 	border-radius: 20px;
 	z-index: 2;
@@ -408,4 +415,26 @@ footer{
     background-color:#222;
     
 }
+
+
+/* ---------------------------------------------------
+                    SCROLLBAR
+----------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+ 
+::-webkit-scrollbar-thumb {
+  /*background: #ffbb33; */
+  background:  linear-gradient(0deg, black 0%, rgba(25,35,50,1) 70%);
+  border-radius:15px;
+  border: 1px solid rgba(0,250,0,0.7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(50,25,50,1) 70%);
 }

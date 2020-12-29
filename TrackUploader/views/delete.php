@@ -66,8 +66,10 @@ function updater(){
 	$qryUpdate="UPDATE `tbl_tracks` SET `name_track`='$name',`img_track`='$img',`artist`='$artist',`link_track`='$link' WHERE `id_track`= $id";
 	$res=mysqli_query($con,$qryUpdate) or die('Track UPDATER() kapot! ');
 	
-	header("Location: https://svenbol.000webhostapp.com/TrackUploader/index.php?pagina=gallerij");
-    die();
+    return header("Location: ../index.php");
+    
+	//header("Location: https://svenbol.000webhostapp.com/TrackUploader/index.php?pagina=gallerij");
+    //die();
 	/*
 	$outUpdate = "<div class='hoofdtitel' ><h1><span>Track Update! </span></h1>
                 <hr class='hrTitel'></div>
@@ -94,7 +96,9 @@ function verwijder(){
 				</span>";
 
 
-	return $outdelete;
+	//return $outdelete;
+
+    return header("Location: ../index.php");
 }
 
 ?>
