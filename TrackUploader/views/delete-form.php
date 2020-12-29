@@ -1,8 +1,5 @@
 <?php
 return "
-<hr class='hrTitel'>
-<div class='hoofdtitel' ><h1><span>Moderate by track id</span></h1>
-<p class='subtitel'>Track id can be found in the lower left corner of the picture.</p><hr class='hrTitel'></div>
 <form method='post' enctype='multipart/form-data' >
 	
 	<p align='center'>

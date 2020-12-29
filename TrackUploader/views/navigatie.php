@@ -1,21 +1,72 @@
 <?php
+
+$fileToLoad;
+$subtitel;
+if(isset($_GET['pagina']))  $fileToLoad = $_GET['pagina'];
+else $fileToLoad = 'gallerij';
+
+switch($fileToLoad){
+    case 'gallerij':
+        $titel = 'Gallery of Tracks';
+        $subtitel = '';
+        break;
+    case 'delete':
+        $titel = 'Moderate by track id';
+        $subtitel = 'Track id can be found in the lower left corner of the picture.';
+        break;
+    case 'upload':
+        $titel = 'Upload a track!';
+        $subtitel = '';
+        break;
+    case 'index':
+        $titel = 'Welcome to TrackUploader!';
+        $subtitel = '';
+        break;
+    default:
+        $titel = 'Welcome to TrackUploader!';
+        $subtitel = '';
+}
+
+if(isset($subtitel))$itemSubTitel = '<p class="subtitel">' . $subtitel .'</p>';
+else $itemSubTitel = '';
+/* WORKING SVG EXAMPLE  <svg class='svg3' viewBox='0 0 50px 30px'>  */
 return
 "
 
 <nav>
 <a href='index.php?pagina=gallerij'>
-    <svg class='svg2' viewBox='0 0 50px 30px'>
+    <svg class='svg2'>
         <text x='10' y='25' >Gallery</text></svg></a>
 <a href='index.php?pagina=upload'>
-    <svg class='svg1' viewBox='0 0 50px 30px'>
+    <svg class='svg1'>
         <text x='10' y='25' >Add Track</text></svg></a>
 <a href='index.php?pagina=delete'>
-    <svg class='svg3' viewBox='0 0 50px 30px'>
+    <svg class='svg3'>
         <text x='10' y='25' >Admin</text></svg></a>
 
 </nav>
+
+<div class='titel'>
+    <hr class='hrTitel'>
+    <div class='hoofdtitel' >
+        <h1><span> $titel </span></h1>
+    </div>
+    $itemSubTitel
+    <hr class='hrTitel'>
+</div>
 ";
 ?>
+
+<!--    KLADBLOK 
+        
+        titel van geopende pagina
+            gallerij = Gallery of Tracks
+            upload = Upload a track!
+            delete(page)= Moderate by track id + subtext = <p class="subtitel">Track id can be found in the lower left corner of the picture.</p>
+
+
+-->
+
 
 
 <!-- BEWERKTE WIDGET

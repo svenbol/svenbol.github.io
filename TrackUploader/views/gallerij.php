@@ -5,10 +5,7 @@ toonAfbeeldingen();
 
 function toonAfbeeldingen()
 {
-	$out = "
-	<hr class='hrTitel'><div class='hoofdtitel' ><H1><span>Gallery of Tracks</span></h1>
-			<hr class='hrTitel'></div>";
-	$out .= "<ul id='afbeeldingen'>";
+	$out = "<ul id='afbeeldingen'>";
 	
 	include("connect.php");
 
