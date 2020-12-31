@@ -264,16 +264,10 @@ ul{
 }
 
 #fotonaam{
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-=======
 	font-size: 0,75em;
->>>>>>> parent of a546d79... rollback (?)
+	font-size: 0,75em;
   margin-top: 3px;
-=======
 	font-size: 0,75em;
->>>>>>> parent of 205ab28... link remove head img + trackuploader
 	/*background-color:rgba(152, 18, 152, 0.25);*/
 }
 
