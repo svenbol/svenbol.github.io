@@ -4,15 +4,19 @@ ini_set("display_errors", 1);
 include_once "./classes/Pagina_data.class.php";
 $paginaData = new Pagina_Data();
 $paginaData->titel = "Track Uploader";
-$paginaData->content = include "./views/navigatie.php";
+$paginaData->favicon = include_once "./app/favicon.php";
+$paginaData->content = include_once "./views/navigatie.php";
 
-$userClicked = isset($_GET['pagina']);
-if($userClicked) $fileToLoad = $_GET['pagina'];
-else $fileToLoad ='gallerij';
+$userClicked = isset($_GET["pagina"]);
+if($userClicked) $fileToLoad = $_GET["pagina"];
+else $fileToLoad ="gallerij";
 
 $paginaData->content .= include_once "./views/$fileToLoad.php";
-$paginaData->addCss('./css/styling.css');
 
-$pagina = include_once "./templates/pagina.php";
+$paginaData->bootstrap = include_once "./app/bootstrapCSS.php";
+$paginaData->addCss("./css/styling.css");
+$paginaData->bottomScripts = include_once "./app/bootstrapPlugin.php";
+
+$pagina = include './templates/pagina.php';
 echo $pagina;
 ?>
