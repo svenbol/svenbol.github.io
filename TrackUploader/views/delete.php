@@ -27,25 +27,27 @@ function getTrackById(){
     
     //action='index.php?pagina=delete'enctype='multipart/form-data'
     		$out = "
+    		<hr class='hrTitel'>
+    		<div class='hoofdtitel'><h1><span> Update Track </span></h1></div>
+    		<hr class='hrTitel'>
     		<form method='post'> 
     		<table class='updatetable'>
-    			<tr><td class='tableUpdateLeftCol'><span>Id:</span> $id <hr></td>
-    				<td class='tableUpdateRightCol'><input type='text' name='_id' value='$id' maxlength='2'></td></TR>
+    				<tr><td><span>Id:</span> $id <hr></td>
+    					<td><input type='text' name='_id' value='$id' maxlength='2'> <hr></td></TR>
     
-    			<tr><td><span>Name:</span> $name <hr></td>
-    				<td><input type='text' name='_name' value='$name' maxlength='28'></td></tr>
+    				<TR><td><span>Name:</span> $name <hr></td>
+    					<td><input type='text' name='_name' value='$name' maxlength='28'></td></tr>
     
-    			<tr><td><span> Artist: </span> $artist <hr></td>
-    				<td><input type='text' name='_artist' value='$artist' maxlenght='28'></td></tr>
+    				<tr><td><span> Artist: </span> $artist <hr></td>
+    					<td><input type='text' name='_artist' value='$artist' maxlenght='28'></td></tr>
     
-    			<tr><td><span class='updatetracklink'> Tracklink:</span> $link <hr></td>
-    				<td><input type='text' name='_link' value='$link'></td></tr>
+    				<tr><td><span class='updatetracklink'> Tracklink:</span> $link <hr></td>
+    					<td><input type='text' name='_link' value='$link'></td></tr>
     
-    			<tr><td><span> Imagesource: </span> $src <hr></td>
-    				<td><input type='text' name='_src' value='$src'></td></tr>
+    				<tr><td><span> Imagesource: </span> $src <hr></td>
+    					<td><input type='text' name='_src' value='$src'></td></tr>
     
-     			<tr><td colspan='2' style='padding-top:20px'><input class='btnUpdate' type='submit' name='updatez' value='Update' /></td></tr>
-            </table>
+     				<tr><td><input type='submit' name='updatez' value='Update'  /></td></tr></table>
     		</form>";
       
         

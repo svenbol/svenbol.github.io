@@ -1,11 +1,15 @@
 body {
   width: 800px;
+  /*height: 100%;*/
   margin: 0 auto;
+  /*background-image: url("../img/forest.gif");*/
+  /*background-image: url("../img/space5.gif");*/
   background-image: url("../img/bg.jpg");
   background-color: black;
   background-size: cover;
+ /* position: relative; niet nodig door backgr attachment*/
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: fixed; /* Achtergrond behoud vaste pos */
   color: rgba(250,253,240,1);
   text-decoration: none;
   padding-top: 25px;
@@ -13,19 +17,16 @@ body {
 
 nav{
 	display: inline-block;
-  background: transparent;
-  width: 800px;
-  height: 60px;
-  border-radius: 25px;
-  text-shadow: 3px 3px black;
-  text-align: center;
-  position: fixed;
-  margin-top: -100px;
-  /* border-top: 5px solid black; */
-  /* border-bottom: 5px solid black; */
-  padding-top: 20px;
-  background: linear-gradient(0deg, rgba(34,34,34,0.66) 10%, rgba(34,50,34,0.66) 100%);
-  z-index: 10;
+	/*background: rgba(15,5,15,0.75);*/
+	width: 100%;
+	height: 60px;
+	border-radius: 25px;
+	/*padding-left: 15px;
+	padding-right: 15px;*/
+	padding-top: 20px;
+	text-shadow:3px 3px black;
+	text-align: center;
+	
 }
 
 nav a{
@@ -105,7 +106,6 @@ text:hover{
   }
 }
 */
-
 .hidden{
 	display: none;
 }
@@ -119,9 +119,7 @@ hr{
 }
 
 .titel{
-  /*background-color: rgba(34,50,34,0.8);*/
-  background: linear-gradient(0deg, rgba(34,34,34,0.66) 10%, rgba(34,50,34,0.66) 100%);
-  margin-top: 80px;
+  background-color: rgba(34,34,34,0.8);
 }
 
 .hrTitel{
@@ -214,7 +212,7 @@ h3{
 #foto p{
   font-size: 0,75em;
 	text-align: center;
-	margin-top: 8px;
+	margin-top: 1%;
 }
 
 #foto li img{	
@@ -267,8 +265,12 @@ ul{
 }
 
 #fotonaam{
+<<<<<<< HEAD
 	
   margin-top: 3px;
+=======
+	font-size: 0,75em;
+>>>>>>> parent of 205ab28... link remove head img + trackuploader
 	/*background-color:rgba(152, 18, 152, 0.25);*/
 }
 
@@ -298,51 +300,33 @@ a, a:link , a:visited , a:hover, a:active {
 	font-size:20px;
 }
 
-.updatetable{
-  width: 66%;
-  display: block;
-  margin: 0 auto;
-  background-color: rgba(34,34,34,0.66);
-  padding: 20px;
-  border: 5px solid rgba(15,5,15,0.75);
-  border-radius: 25px;
-}
-
 .updatetable tr{
 	width: 100%;
-  border: rgba(34,34,34,0.66);
 }
 
 .updatetable tr td{
-	/*width: 25%;*/
+	width: 25%;
 }
 
 .updatetable input[type="text"] {
-  display: block;
-  margin-left:25px;
-  margin-top: -8px;
-}
+             display: block;
+             margin-left:25px;
+             margin-top: -8px;
+        }
 
 .updatetracklink{
 
 }
 
-.btnUpdate,input[name='updatez']{
-  display: block;
-  text-align: center;
-  margin: 0 auto;
-}
 
 
 .updateanswer{
 	background-color: rgba(0,0,15,0.8);
 }
 
-.updatetable td span{
-  text-shadow: 2px 1px 3px #00FF00;
-}
-
 .updatetable td span, .upload-form input[type='file']{
+	background-color:rgba(152, 18, 152, 0.5) ;
+	/*border-radius: 25px;*/
 	padding-left: 5px;
 	padding-right: 5px;
 	
@@ -354,94 +338,62 @@ a, a:link , a:visited , a:hover, a:active {
   	/*text-overflow:ellipsis;*/
 }
 
-.tableUpdateRightCol{
-  width: 50%;
-  min-width: 200px;
-}
-
-.tableUpdateLeftCol{
-  width: 40%;
-  min-width: 180px;
-}
-
 input[type='file'],input[type='submit'],input[type='text'],input[type='number']{
 	border-radius: 6px;
 	border: 2px solid rgba(15,5,15,0.75);
-
 }
 
 input[type='text'],input[type='number']{
 	text-align: center;
-  display: block;
-  margin: 0 auto;
-  width: 66%;
-  height: 25px;
-  font-size: 20px;
 }
 
-.updatetable input[type='text'],.updatetable input[type='number']{
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-  width: 85%;
-  height: 20px;
-  font-size: 18px;
-  margin-top: -15px;
+img[src='https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png']{
+    display:none;
 }
 
 input[type='submit']{
-  background: rgba(34,34,34,0.8);
-  border-radius: 25px;
-  color: #FFFFFF;
-  font-family:Times;
-  font-size: 30px;
-  font-weight: 600;
-  padding: 12px 10px 12px 10px;
-  box-shadow: 1px 1px 20px 0px #000000;
-  -webkit-box-shadow: 1px 1px 20px 0px #000000;
-  -moz-box-shadow: 1px 1px 20px 0px #000000;
-  text-shadow: 2px 2px black, -2px -2px 8px #00FF00;
-  border: solid rgba(0,0,10,0.75) 3px;
-  text-decoration: none;
-  display: block;
-  cursor: pointer;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
+    background: rgba(34,34,34,0.8);
+    /*
+   background-image: -webkit-linear-gradient(top, #333333, #222222);
+   background-image: -moz-linear-gradient(top, #333333, #222222);
+   background-image: -ms-linear-gradient(top, #333333, #222222);
+   background-image: -o-linear-gradient(top, #333333, #222222);
+   background-image: linear-gradient(to bottom, #333333, #222222);
+   -webkit-border-radius: 25px;
+   -moz-border-radius: 25px;
+ */
+   border-radius: 25px;
+   color: #FFFFFF;
+   font-family:Times;
+   font-size: 30px;
+   font-weight: 600;
+   padding: 12px 10px 12px 10px;
+   box-shadow: 1px 1px 20px 0px #000000;
+   -webkit-box-shadow: 1px 1px 20px 0px #000000;
+   -moz-box-shadow: 1px 1px 20px 0px #000000;
+   text-shadow: 2px 2px black, -2px -2px 8px #00FF00;
+   border: solid #222222 3px;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;
 }
 
 input[type='submit']:hover{
-  border: solid rgba(15,180,15,0.75) 3px;
-  background: rgba(0,200,55,0.5);
-}
-
-.uploadForm{
-  width: 70%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 5px solid rgba(15,5,15,0.75);
-  border-radius: 25px;
-  background: rgba(34,34,34,0.8);
+    border: solid #222 4px;
+    background: rgba(0,200,55,0.5);
+    
 }
 
 .uploadForm input{
-  display: block;
-  margin: 150,0; 
+    display: block;
+    margin: 150,0;
+    
 }
 
 .uploadForm input{
-  display: block;
-  margin: 0 auto;
-}
-
-.adminMenu{
-  width: 25%;
-  text-align: center;
-  background: rgba(34,34,34,0.75);
-  border: solid rgba(0,0,10,0.75) 3px;
-  margin: 0 auto;
-  border-radius: 25px;
-  padding: 20px;
+    display: block;
+    margin: 0 auto;
 }
 
 #MicrosoftTranslatorWidget{
@@ -454,8 +406,11 @@ input[type='submit']:hover{
 
 #LauncherLogo{
     visibility: hidden;
+    
     display: none;
+    
     opacity: 0.0;
+    
     position: absolute;  
     left: -999999px;
 }
