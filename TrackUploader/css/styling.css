@@ -210,7 +210,6 @@ h3{
 }
 
 #foto p{
-  font-size: 0,75em;
 	text-align: center;
 	margin-top: 1%;
 }
@@ -266,7 +265,11 @@ ul{
 
 #fotonaam{
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
+=======
+	font-size: 0,75em;
+>>>>>>> parent of a546d79... rollback (?)
   margin-top: 3px;
 =======
 	font-size: 0,75em;
