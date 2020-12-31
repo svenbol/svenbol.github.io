@@ -17,5 +17,10 @@ $paginaData->addCss('./css/styling.css');
 $paginaData->addCss("./css/styling.css");
 //$paginaData->bottomScripts = include_once "./app/bootstrapPlugin.php";
 $pagina = include './templates/pagina.php';
+
+
+
+
+
 echo $pagina;
 ?>
