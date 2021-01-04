@@ -29,10 +29,9 @@ switch($fileToLoad){
 
 if(isset($subtitel))$itemSubTitel = '<p class="subtitel">' . $subtitel .'</p>';
 else $itemSubTitel = '';
-/* WORKING SVG EXAMPLE  <svg class='svg3' viewBox='0 0 50px 30px'>  */
+
 return
 "
-
 <nav>
 <a href='index.php?pagina=gallerij'>
     <svg class='svg2'>
@@ -57,29 +56,13 @@ return
 ";
 ?>
 
-<!--    KLADBLOK 
-        
-        titel van geopende pagina
-            gallerij = Gallery of Tracks
-            upload = Upload a track!
-            delete(page)= Moderate by track id + subtext = <p class="subtitel">Track id can be found in the lower left corner of the picture.</p>
-
-
--->
-
-
-
 <!-- BEWERKTE WIDGET
-
-
 <div >
     <div style='display:inline-block'>
         <div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:rgba(10, 10, 10, 0.5);'><script type='text/javascript'>setTimeout(function(){{var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&ctf=True&ui=true&settings=Manual&from=en';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); }},0);</script> 
         </div> 
     </div>
-
 </div>
-
 -->
 
 <!-- ORIGINAL widget

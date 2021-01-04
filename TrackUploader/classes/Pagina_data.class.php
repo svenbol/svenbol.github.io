@@ -8,5 +8,6 @@ class Pagina_Data {
  public function addCss($href) {
  	$this->css .= "<link href='$href' rel='stylesheet'/>";
  }
+
 } 
 ?>
