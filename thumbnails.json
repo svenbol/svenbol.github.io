@@ -51,7 +51,7 @@
                 "title":"PHP - Bootstrap",
                 "subText":"PlantUploader",
                 "href":"https://plantuploader.herokuapp.com/",
-                "imgSrc":"img/plantuploader.png",
+                "imgSrc":"img/phpplantuploader.png",
                 "id":"php",
                 "target":"_blank"
             }
