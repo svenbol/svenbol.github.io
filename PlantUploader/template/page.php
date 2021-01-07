@@ -7,8 +7,10 @@ return "<!DOCTYPE html>
 	$p->bootstrapCss
 	$p->css
 	$p->favicon
+
 </head>
-<body class='w-100 p-3 container-sm-10 container-xl-5'>
+<body class='bg-dark mx-auto text-white'>
+	$p->navbar
 	$p->content
 	$p->bootstrapJs
 </body>

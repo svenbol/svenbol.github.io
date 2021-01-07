@@ -2,31 +2,37 @@
 
 class Plant {
 	// Identificatie
-	private $id;
-	private $name;
-	private $family;
-	private $img;
+	public $id;
+	public $name;
+	public $family;
+	public $img;
 
 	// Onderhoud
-	private $humidity;
-	private $water;
-		private $waterWinter;
-		private $waterSummer;
-	private $acidityMin;	//ph-values
-	private $acidityMax;
+	public $humidity;
+	public $water;
+		public $waterWinter;
+		public $waterSummer;
+	public $acidityMin;	//ph-values
+	public $acidityMax;
 
-	private $sun;
-	private $tempMin;
-	private $tempMax;
+	public $sun;
+	public $tempMin;
+	public $tempMax;
 
 	// Verzorging
-	private $nutrition; 	//npk
-	private $pruning; 		//snoeien
-	private $repotting;
+	public $nutritionWhat; 	//npk
+	public $nutritionWhen;
+	public $nutritionFreq;
+
+	public $pruningWhat; 		//snoeien
+	public $pruningWhen;
+
+	public $repotWhen;
+	public $repotFreq;
 
 	// Info
-	private $toxicity;
-	private $extra;	
+	public $toxicity;
+	public $extra;	
 
 }
 
