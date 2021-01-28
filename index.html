@@ -31,30 +31,17 @@
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Job Profiles</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Full Stack C#</a>
-                        </li>
-                        <li>
-                            <a href="#">Web C#</a>
-                        </li>
-                        <li>
-                            <a href="#">Web PHP</a>
-                        </li>
+                        <li> <a href="#">Full Stack C#</a> </li>
+                        <li> <a href="#">Web C#</a> </li>
+                        <li> <a href="#">Web PHP</a> </li>
                     </ul>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">About</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Lier</a>
-                            
-                        </li>
-                        <li>
-                            <a href="#">Rijbewijs B </a>
-                        </li>
-                        <li>
-                            <a href="#">24/02/1994</a>
-                        </li>
+                        <li> <a href="#">Lier</a> </li>
+                        <li> <a href="#">Rijbewijs B</a> </li>
+                        <li> <a href="#">24/02/1994</a> </li>
                     </ul>
                 </li>
                 <li>
@@ -206,6 +193,7 @@
             $('#sidebarCollapse').on('click', function () {
                 
                 $('#sidebar').toggleClass('active');
+                $(document.body)toggleClass('paddington');
                 
                 if($('#sidebar').hasClass('active')){
                     $('.svg-inline--fa').removeClass('fa-angle-double-left');
