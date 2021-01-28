@@ -3,6 +3,7 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 body {
     font-family: 'Poppins', sans-serif;
     background: url(/img/paint270.jpg) no-repeat center center fixed;
@@ -72,6 +73,9 @@ a:focus {
     border-right: 1px solid #d89933;
     border-bottom: 4px solid #d89933;
     box-shadow: 3px 0px 1px 0px rgba(199,135,6,1);
+    position: fixed;
+    top:0;
+    left:0;
     
 }
 
@@ -373,4 +377,8 @@ form {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%);
+}
+
+.paddington{
+  padding-left: 240px;
 }
