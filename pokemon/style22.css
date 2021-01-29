@@ -2,13 +2,14 @@ body{
 	display: block;
 	width: 800px;
 	margin: 0 auto;
-	background-image: url("bgs/bg07.gif");
+	/*background-image: url("bgs/bg07.gif");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	/*background-position: center center;*/
+	background-position: center center;*/
 	background-attachment: fixed;
+	background: url("bgs/bg07.gif") no-repeat center center fixed;
+	background-size: cover;
 	
-
 }
 
 #overlay{
