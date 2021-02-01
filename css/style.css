@@ -196,7 +196,15 @@ a.article:hover {
 }
 
 #skillSubMenu{
-  width: 90%;
+  width: 100%;
+  background: #ffcc44;
+  padding: 30px;
+}
+
+#skillSubMenu .row{
+  height: 45px;
+  min-height: 45px;
+  max-height: 45px;
 }
 
 .galleryLearned{
@@ -209,6 +217,7 @@ a.article:hover {
 .iconsLearned img{
   width: 100%;
   height: 100%;
+  filter: invert(1);
 }
 
 .iconsLearned{
@@ -217,17 +226,7 @@ a.article:hover {
   vertical-align: top;
 }
 
-#skillSubMenu{
-  width: 100%;
-  background: #ffcc44;
-  padding: 30px;
-}
 
-#skillSubMenu .row{
-  height: 45px;
-  min-height: 45px;
-  max-height: 45px;
-}
 
 /* ---------------------------------------------------
     CONTENT STYLE
