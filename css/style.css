@@ -120,7 +120,7 @@ a:focus {
     text-shadow: 2px 2px 0px black;
 }
 
-#skillSubMenu ul li a:hover {
+#skillSubMenu li a:hover {
     border-radius: 50%;
 }
 
