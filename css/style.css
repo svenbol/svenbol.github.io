@@ -218,6 +218,7 @@ a.article:hover {
 }
 
 #skillSubMenu{
+  width: 100%;
   background: #ffcc44;
   padding: 30px;
 }
