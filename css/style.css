@@ -202,9 +202,9 @@ a.article:hover {
 }
 
 #skillSubMenu .row{
-  height: 45px;
-  min-height: 45px;
-  max-height: 45px;
+  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
 }
 
 .galleryLearned{
