@@ -195,6 +195,10 @@ a.article:hover {
     color: #fff !important;
 }
 
+#skillSubMenu{
+  width: 90%;
+}
+
 .galleryLearned{
   width: 90%;
   display: block;
@@ -211,6 +215,11 @@ a.article:hover {
   width: 32%;
   display: inline-block;
   vertical-align: top;
+}
+
+#skillSubMenu{
+  background: #ffcc44;
+  padding: 30px;
 }
 
 /* ---------------------------------------------------
