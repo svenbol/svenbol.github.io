@@ -195,16 +195,16 @@ a.article:hover {
     color: #fff !important;
 }
 
-.galleryLearned img{
-  width: 100%;
-  height: 100%;
-}
-
 .galleryLearned{
   width: 90%;
   display: block;
   margin: 0 auto;
 
+}
+
+.iconsLearned img{
+  width: 100%;
+  height: 100%;
 }
 
 .iconsLearned{
