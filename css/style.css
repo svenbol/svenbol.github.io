@@ -223,6 +223,12 @@ a.article:hover {
   padding: 30px;
 }
 
+#skillSubMenu .row{
+  height: 45px;
+  min-height: 45px;
+  max-height: 45px;
+}
+
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
