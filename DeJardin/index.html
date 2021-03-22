@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css' integrity='sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2' crossorigin='anonymous'>
+    <style>
+        body{
+            padding-top: 30px;
+        }
+
+        #tuin1,#tuin2 {
+          width: 720px;
+          height: 300px;
+          padding:0px;
+        }
+
+        #tuin2{
+            height: 240px;
+        }
+
+        #blok{
+            width: 60px;
+            height: 60px;
+            border: 1px solid black;
+        }
+
+        #blokless{
+            width: 60px;
+            height: 60px;
+        }
+
+        #menu,#menu2,#menu3{
+            width: 360px;
+            height: auto;
+            vertical-align: top;
+            padding: 0;
+            position: absolute;
+            right: 50px;
+        }
+
+        #menu{
+            top:30px;
+        }
+
+        #menu2{
+            top:330px;
+        }
+
+        #menu3{
+            top:510px;
+        }
+
+        img{
+            border:1px solid black;
+        }
+
+    </style>
+    <script>
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            ev.effectAllowed = "copyMove";
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var id = ev.dataTransfer.getData("text");
+          //ev.target.appendChild(document.getElementById(id));     MOVE
+          var nodeCopy = document.getElementById(id).cloneNode(true);
+          ev.target.appendChild(nodeCopy);
+        }
+
+        window.onload = function(){
+            var blok = document.getElementsByClassName('blok');
+
+            for(i = 0; i < blok.length; i++){
+                blok[i].addEventListener("contextmenu",function(ev){
+                    ev.preventDefault();
+                    
+                    this.removeChild(this.firstChild);
+
+                });
+
+                blok[i].addEventListener("click",function(ev){
+                    ev.preventDefault();
+
+                    switch(this.style.border){
+                        case "1px solid black":
+                            this.style.border ="1px solid yellow";
+                            break;
+                        case "1px solid yellow":
+                            this.style.border ="1px solid black";
+                            break;
+                        default:
+                            this.style.border ="1px solid black";
+                    }
+                });
+                
+            }
+                
+        }
+
+    </script>
+</head>
+<body class="bg-success">
+    <div class="container">
+        <div id="tuin1" class="row bg-warning">
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+            <div id="blokless" class="bg-success" class="col-2"></div>
+        </div>
+        
+        <div id="pad" class="row bg-success" style="width:640px;height:60px"></div>
+
+        <div id="tuin2" class="row bg-warning">
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+         <div id="blok" ondrop="drop(event)" ondragover="allowDrop(event)" class="blok bg-danger"></div>
+        </div>
+
+        <div id="menu" class="row">
+        
+            <img id="groente2" src="img/zoetepatat.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente11" src="img/butternut.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente4" src="img/edamame.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente1" src="img/wortel.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente19" src="img/pastinaak.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente20" src="img/peterseliewortel.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+
+            <img id="groente14" src="img/ijsbergsla.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">             
+            <img id="groente9" src="img/tomaat.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente3" src="img/zoetepuntpaprika.jpg" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente6" src="img/courgette.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente8" src="img/brocoli.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente17" src="img/prei.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60" alt="prei">
+
+            <img id="groente13" src="img/rucola.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente16" src="img/zwartetomaat.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente5" src="img/chili.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente10" src="img/aubergine.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente18" src="img/bloemkool.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="groente15" src="img/olijfkomkommer.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            
+            <img id="groente12" src="img/bladmosterd.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+
+            <!--<img id="groente7" src="img/brocoli.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">-->
+                     
+            <!-- GROENTE 20 -->
+        </div>
+
+        <div id="menu2" class="row">
+            <img id="kruid1" src="img/basilicum.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="kruid2" src="img/oregano.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="kruid3" src="img/munt.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="kruid4" src="img/bieslook.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60" alt="bieslook">
+            <img id="kruid5" src="img/lenteui.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60" alt="lenteui">
+            <img id="kruid6" src="img/citroengras.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60" alt="citroengras">
+            <img id="kruid7" src="img/peterselie.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="kruid8" src="img/rodebasilicum.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+        </div>
+
+        <div id="menu3" class="row">
+            <img id="fruit1" src="img/blueberry.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+            <img id="fruit2" src="img/pinkberry.jfif" draggable="true" ondragstart="drag(event)" width="60" height="60">
+        </div>
+    </div>
+    <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
+    <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous'></script>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js' integrity='sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s' crossorigin='anonymous'></script>
+    
+ 
+</body>
+</html>
