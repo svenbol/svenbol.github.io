@@ -1,0 +1,315 @@
+/*________________________ Vars _______________________ */
+
+$pink: rgb(255,179,186)
+$purple: rgb(225,170,225)
+
+$yellow: rgb(255,255,186)
+$orange: rgb(255,223,186)
+
+$blue: rgb(186,186,255)
+$green: rgb(186,255,200)
+
+/*_________________________ Grouped Vars _______________ */
+
+%textDecoNo
+	text-decoration: none
+
+%gradientPink
+	background: rgb(255,179,186)
+	background: linear-gradient(0deg, rgba(255,179,186,1) 25%, rgba(225,170,225,1) 75%)
+
+%title
+	text-shadow: 2px 2px #808090
+	font-style: italic
+	color: $blue
+
+%subTitle
+	color: $pink
+	font-weight: bold
+
+%subTitleBg
+	background-color: rgba(100,100,150,1)
+	
+
+/*________________________ BORDERS buttons _____________ */
+
+%mainBorder
+	border: 5px ridge $blue
+
+%circleGalleryBorder
+	border: 5px outset $blue
+	border: 5px inset #aaaaff
+
+%circleGalleryHover
+	border: 5px outset $pink
+	border: 5px inset $blue
+
+%rectGalleryBorder
+	border: 5px outset $blue
+	border: 5px inset $blue
+
+%borders
+	border-bottom-left-radius: 25px
+	border-bottom-right-radius: 25px
+
+%mainShadow
+	text-shadow: 2px 2px 1px #808090	
+
+/*_________________________ COLOR THEMES shadows ________________ */
+
+%themeBlue
+	background: $blue
+	color: $pink
+
+%themeYellow
+	background: $yellow
+	color: $purple
+	@extend %mainBorder
+
+%themeGreen
+	background: $green
+	color: $pink
+	@extend %mainBorder
+
+%themePink
+	background: $pink
+	color: $green
+	@extend %mainBorder
+
+%navHeight
+	position: relative
+	top: 230px
+
+
+/* _________________________ MAIN ________________________ */
+
+body
+	@extend %themeBlue
+	font-size: 20px
+	font-weight: bold
+	font-family: 'Indie Flower'
+
+.main
+	display: block
+	margin: 0 auto
+	position: relative
+	top: 135px
+	
+.main > *
+	max-width: 800px
+
+nav
+	height: 135px
+	width: 100%
+	min-width: 790px
+	position: fixed
+	top: 0px
+	z-index: 1000
+	@extend %gradientPink
+	border-bottom: 5px ridge $blue
+
+.navImg
+	height: 180px
+	min-width: 250px
+	max-width: 500px
+
+
+.colorMainz
+	@extend %gradientPink
+	
+
+h1,h2
+	@extend %title
+
+h3,h4,h5
+	@extend %subTitle
+
+h6,h7
+	color: $blue
+	font-size: 15px
+
+
+/* _________________________ PICKERDAY ___________________ */
+
+#pickerDay h5
+	border-bottom: 5px ridge $blue
+	padding-left:15px
+	font-style: italic
+	background-color: rgba(100,100,150,1)
+
+#pickerDay .borderTop
+	border-top: 5px ridge $blue
+
+.pickerDayImg
+	@extend %rectGalleryBorder
+
+#pickerDay li
+	font-size: 18px
+
+/* _________________________ PICKERWEEK __________________ */
+	
+#pickerWeek .row
+	margin-top: 0
+	padding-top: 0
+	@extend %themePink
+	@extend %borders
+
+#pickerWeek .row:nth-of-type(1)
+	height: 85px
+	border-top:0px
+
+#pickerWeek .row:nth-of-type(2)
+	border-top-left-radius: 25px
+	border-top-right-radius: 25px
+
+#pickerWeek .row:nth-of-type(2) > div > a:hover
+	text-decoration-color: $blue
+
+#pickerWeek .row:nth-of-type(2) > .col-3 > a > img
+	@extend %circleGalleryBorder
+
+#pickerWeek .row:nth-of-type(2) > .col-3 > a > img:hover
+	@extend %circleGalleryHover
+
+#pickerWeek img
+	max-height: 135px
+	min-height: 135px
+	border: 2px solid $blue
+	border-radius: 50%
+
+#pickerWeek p
+	color: $yellow
+	font-size: 15px
+
+#pickerWeek h1
+	font-weight: bold
+
+#pickerWeek h5
+	color: $blue
+	@extend %mainShadow
+
+#pickerWeek hr
+	border: 2px outset $blue
+
+
+/* _________________________ UPLOAD ______________________ */
+
+
+/* _________________________ GALLERY _____________________ */
+#galleryItem
+	height: 300px
+
+/* _________________________ DETAIL ______________________ */
+#detail > img
+	width: 100%
+	height: auto
+	max-width: 200px
+	max-height: 200px
+
+#detail > *
+	height: 80px
+
+.invertImg img
+	filter: invert(1)
+
+.invertImg > a:hover
+	box-shadow: 0px 0px 5px black
+
+/*__________________________ UPLOADMEAL __________________ */
+
+/*__________________________ GALLERYMEAL __________________ */
+#galleryMeal > #galleryItem
+	@extend %mainBorder
+
+#galleryMeal > #galleryItem > #galleryLink > #galleryItemId
+	background-color: $pink
+
+
+#galleryItem > #galleryLink > #galleryItemImg
+	width: 180px
+	min-height: 180px
+	padding-left: 0px
+	padding-right: 0px
+	@extend %circleGalleryBorder
+
+#galleryItem > #galleryLink > #galleryItemImg:hover
+	@extend %circleGalleryHover	
+
+/*__________________________ DETAILMEAL __________________ */
+
+i
+	font-size: 15px
+	color: $yellow
+	background: $green
+	border-radius: 5
+
+/* _________________________ BOLSTRAP ____________________ */
+.leftInline
+	display: inline-block
+	vertical-align: top
+	float: left
+
+.rightInline
+	display: inline-block
+	vertical-align: top
+	float: right
+
+.centerInline
+	display: inline-block
+	vertical-align: top
+	margin: 0 auto
+
+.paddingSm
+	padding: 1%
+
+.paddingMd
+	padding: 2%
+
+.paddingLg
+	padding: 5%
+
+.marginSm
+	margin: 1%
+
+.marginMd
+	margin: 2%
+
+.marginLg
+	margin: 5%
+
+.w-20
+	width: 19.5%
+	max-width: 19.5%
+
+.w-30
+	width: 29.5%
+	max-width: 29.5%
+
+.w-33
+	width: 32.5%
+	max-width: 32.5%
+
+.w-66
+	width: 65.5%
+	max-width: 65.5%
+
+.w-70
+	width: 69.5%
+	max-width: 69.5%	
+
+.w-80
+	width: 79.5%
+	max-width: 79.5%
+
+.w-99
+	width: 32.5%
+	max-width: 32.5%
+
+.roundedz
+	@extend %themePink
+
+	border-top-left-radius: 0px
+	border-top-right-radius: 0px
+
+	border-bottom-left-radius: 25px
+	border-bottom-right-radius: 25px
