@@ -14,13 +14,14 @@
 <body class="container">
 	<div class="container">
 	<nav class="row">
-		<div class="col-1 bg-info html"><img src="./img/html.png"></div>
-
+		<div class="col-1 bg-info html"><img src="./img/HTML.png"></div>
+		<div class="col-1 bg-info canvas"><img src="./img/canvas.png"></div>
+		
 		<div class="col-1 bg-success css"><img src="./img/css.png"></div>
 		<div class="col-1 bg-success bootstrap"><img src="./img/bootstrap.png"></div>
 		<div class="col-1 bg-success sass"><img src="./img/sass.png"></div>
 
-		<div class="col-1 bg-warning js"><img src="./img/js.png"></div>
+		<div class="col-1 bg-warning js"><img src="./img/JS.png"></div>
 		<div class="col-1 bg-warning jquery"><img src="./img/jquery.png"></div>
 		<div class="col-1 bg-warning json"><img src="./img/json.png"></div>
 		<div class="col-1 bg-warning vue"><img src="./img/vuejs.png"></div>
@@ -30,11 +31,12 @@
 		<div class="col-1 bg-primary angular"><img src="./img/angular.png"></div>
 
 		
-		<div class="col-1 bg-dark"><img src="#"></div>
+		
 		
 	</nav>
 	<nav class="row">		
 		<div class="col-1 bg-info"></div>
+		<div class="col-1 bg-info canvas"><img src="./img/canvas.png"></div>
 
 		<div class="col-1 bg-success"></div>
 		<div class="col-1 bg-success bootstrapi"><img src="./img/bootstrap.png"></div>
@@ -50,13 +52,13 @@
 		<div class="col-1 bg-primary angular"><img src="./img/angular.png"></div>
 
 		
-		<div class="col-1 bg-dark"><img src="#"></div>
+		
 		
 	</nav>
 	</div>
 	<div class=".content">
-		<iframe src="https://cheatography.com/liezeln/cheat-sheets/bootstrap-4-2019-ver-2-2/" title="Bootstrap"></iframe>
-		<!-- https://javascript.pythoncheatsheet.org/#index-of-an-array -->
+		<iframe src="https://getbootstrap.com/docs/4.6" title="Bootstrap"></iframe>
+		<!-- https://www.w3schools.com/whatis/whatis_fullstack_js.asp -->
 	</div>
 	<script>
 		$("div.angular").click(function(){
@@ -75,16 +77,23 @@
 			$("iframe").attr('src','https://htmlcheatsheet.com/');
 		});
 
+		$("div.canvas").click(function(){
+			$("iframe").attr('src','https://simon.html5.org/dump/html5-canvas-cheat-sheet.html');
+		})
+
 		$("div.jquery").click(function(){
 			$("iframe").attr('src','https://htmlcheatsheet.com/jquery/');
 		});
 
 		$("div.js").click(function(){
-			$("iframe").attr('src','https://cheatography.com/davechild/cheat-sheets/javascript/');
+			$("iframe").attr('src','https://htmlcheatsheet.com/js/');
+			// https://cheatography.com/davechild/cheat-sheets/javascript/
+			// https://javascript.pythoncheatsheet.org/#index-of-an-array
 		});
 
 		$("div.json").click(function(){
-			$("iframe").attr('src','https://cheatography.com/gaston/cheat-sheets/json/');
+			$("iframe").attr('src','https://www.guru99.com/json-tutorial-example.html#6');
+			// https://cheatography.com/gaston/cheat-sheets/json/
 		});
 		
 		$("div.php").click(function(){
@@ -92,18 +101,32 @@
 		});
 
 		$("div.sass").click(function(){
-			$("iframe").attr('src','https://cheatography.com/mist-graphx/cheat-sheets/sass-script/');
+			$("iframe").attr('src','https://sass-lang.com/documentation');
+			// https://cheatography.com/mist-graphx/cheat-sheets/sass-script/
 		});
 		
 		$("div.bootstrap").click(function(){
-			$("iframe").attr('src','https://cheatography.com/liezeln/cheat-sheets/bootstrap-4-2019-ver-2-2/');
+			$("iframe").attr('src','https://getbootstrap.com/docs/5.0');
+			// https://cheatography.com/liezeln/cheat-sheets/bootstrap-4-2019-ver-2-2/
 		});
 
 		$("div.vue").click(function(){
 			$("iframe").attr('src','https://marozed.com/vue-cheatsheet/');
 		});
 
+		$("div.canvas").click(function(){
+			$("iframe").attr('src','https://simon.html5.org/dump/html5-canvas-cheat-sheet.html');
+		})
+
+		/* ICON STUFF */
+		//	https://getbootstrap.com/docs/3.3/components/
+		// 	https://fontawesome.com/icons?d=gallery&p=2
+
 		/* INSTALLERS */
+
+		$("div.bootstrapi").click(function(){
+			$("iframe").attr('src','https://getbootstrap.com/docs/5.0');
+		});
 
 		$("div.jqueryi").click(function(){
 			$("iframe").attr('src','https://jquery.com/download/');
