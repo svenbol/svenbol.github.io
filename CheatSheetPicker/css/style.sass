@@ -1,16 +1,17 @@
-$subNavHeight: 15px
-$navHeight: 65px
+$subNavHeight: 35px
+$navHeight: 50px
 
 nav
-	width: auto
+	width: 100vw
 	height: $navHeight
 	background-color: yellow
 	position: absolute
 	top: 0
-	left: 15px
-	
+	left: 0
+	overflow-x:hidden
+
 nav:nth-of-type(2)
-	width: auto
+	width: 100vw
 	height: $subNavHeight
 	background-color: green
 	position: absolute
@@ -39,12 +40,12 @@ nav:nth-of-type(1) .col-1 img
 nav:nth-of-type(2) .col-1 img
 	width: 100%
 	max-height: $subNavHeight - 5
-	margin-top: -10px
+	
 
 //----------------------
 
 iframe
-	width: 100%
+	width: 100vw
 	height: 90vh
 	display: block
 	position: fixed

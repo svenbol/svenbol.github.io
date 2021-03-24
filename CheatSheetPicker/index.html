@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="bg-primary" lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Sheet to Cheat</title>
@@ -11,48 +11,48 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body class="container">
+<body>
 	<div class="container">
 	<nav class="row">
 		<div class="col-1 bg-info html"><img src="./img/html.png"></div>
 		<div class="col-1 bg-info canvas"><img src="./img/canvas.png"></div>
 		
-		<div class="col-1 bg-success css"><img src="./img/css.png"></div>
+		<!--<div class="col-1 bg-success css"><img src="./img/css.png"></div>-->
 		<div class="col-1 bg-success bootstrap"><img src="./img/bootstrap.png"></div>
 		<div class="col-1 bg-success sass"><img src="./img/sass.png"></div>
+		<div class="col-1 bg-success less"><img src="./img/less.png"></div>
 
 		<div class="col-1 bg-warning js"><img src="./img/js.png"></div>
 		<div class="col-1 bg-warning jquery"><img src="./img/jquery.png"></div>
-		<div class="col-1 bg-warning json"><img src="./img/json.png"></div>
+		<!--<div class="col-1 bg-warning json"><img src="./img/json.png"></div>-->
 		<div class="col-1 bg-warning vue"><img src="./img/vuejs.png"></div>
 
 		<div class="col-1 bg-primary php"><img src="./img/php.png"></div>	
 		<div class="col-1 bg-primary heroku"><img src="./img/heroku.png"></div>
 		<div class="col-1 bg-primary angular"><img src="./img/angular.png"></div>
 
-		
-		
+		<div class="col-1"></div>
 		
 	</nav>
 	<nav class="row">		
-		<div class="col-1 bg-info"></div>
-		<div class="col-1 bg-info canvas"><img src="./img/canvas.png"></div>
+		<div class="col-1 bg-success css"><img src="./img/css.png"></div>
 
-		<div class="col-1 bg-success"></div>
+		<div class="col-1 bg-info canvasi"><img src="./img/canvas.png"></div>
+
 		<div class="col-1 bg-success bootstrapi"><img src="./img/bootstrap.png"></div>
-		<div class="col-1 bg-success sass"><img src="./img/sass.png"></div>
+		<div class="col-1 bg-success sassi"><img src="./img/sass.png"></div>
+		<div class="col-1 bg-success lessi"><img src="./img/less.png"></div>
 
-		<div class="col-1 bg-warning"></div>
+		<div class="col-1 bg-warning json"><img src="./img/json.png"></div>	
+		<!--<div class="col-1 bg-warning json"></div>-->
 		<div class="col-1 bg-warning jqueryi"><img src="./img/jquery.png"></div>
-		<div class="col-1 bg-warning json"></div>
-		<div class="col-1 bg-warning vue"><img src="./img/vuejs.png"></div>
+		<div class="col-1 bg-warning vuei"><img src="./img/vuejs.png"></div>
 
-		<div class="col-1 bg-primary php"><img src="./img/php.png"></div>
-		<div class="col-1 bg-primary heroku"><img src="./img/heroku.png"></div>
-		<div class="col-1 bg-primary angular"><img src="./img/angular.png"></div>
+		<div class="col-1 bg-primary phpi"><img src="./img/php.png"></div>
+		<div class="col-1 bg-primary herokui"><img src="./img/heroku.png"></div>
+		<div class="col-1 bg-primary angulari"><img src="./img/angular.png"></div>
 
-		
-		
+		<div class="col-1"></div>
 		
 	</nav>
 	</div>
@@ -70,7 +70,8 @@
 		});
 
 		$("div.heroku").click(function(){
-			$("iframe").attr('src','https://htmlcheatsheet.com/css/');
+			$("iframe").attr('src','https://codeshare.io/G68NLY');
+			// https://devcenter.heroku.com/categories/reference
 		});		
 
 		$("div.html").click(function(){
@@ -79,15 +80,19 @@
 
 		$("div.canvas").click(function(){
 			$("iframe").attr('src','https://simon.html5.org/dump/html5-canvas-cheat-sheet.html');
-		})
+		});
 
 		$("div.jquery").click(function(){
 			$("iframe").attr('src','https://htmlcheatsheet.com/jquery/');
 		});
 
+		$("div.less").click(function(){
+			$("iframe").attr('src','http://lesscss.org/');
+		});
+
 		$("div.js").click(function(){
-			$("iframe").attr('src','https://htmlcheatsheet.com/js/');
-			// https://cheatography.com/davechild/cheat-sheets/javascript/
+			$("iframe").attr('src','https://htmlcheatsheet.com/js/');	
+			// https://cheatography.com/davechild/cheat-sheets/javascript   
 			// https://javascript.pythoncheatsheet.org/#index-of-an-array
 		});
 
@@ -97,11 +102,12 @@
 		});
 		
 		$("div.php").click(function(){
-			$("iframe").attr('src','https://cheatography.com/davechild/cheat-sheets/php/');
+			$("iframe").attr('src','https://devhints.io/wip/php');
+			// https://cheatography.com/davechild/cheat-sheets/php/
 		});
 
 		$("div.sass").click(function(){
-			$("iframe").attr('src','https://sass-lang.com/documentation');
+			$("iframe").attr('src','https://sass-lang.com/guide');
 			// https://cheatography.com/mist-graphx/cheat-sheets/sass-script/
 		});
 		
@@ -114,26 +120,53 @@
 			$("iframe").attr('src','https://marozed.com/vue-cheatsheet/');
 		});
 
-		$("div.canvas").click(function(){
-			$("iframe").attr('src','https://simon.html5.org/dump/html5-canvas-cheat-sheet.html');
-		})
-
 		/* ICON STUFF */
 		//	https://getbootstrap.com/docs/3.3/components/
 		// 	https://fontawesome.com/icons?d=gallery&p=2
 
 		/* INSTALLERS */
 
-		$("div.bootstrapi").click(function(){
-			$("iframe").attr('src','https://getbootstrap.com/docs/5.0');
+		$("div.angulari").click(function(){
+			$("iframe").attr('src','https://cli.angular.io/');
 		});
+
+		$("div.herokui").click(function(){
+			$("iframe").attr('src','https://codeshare.io/ayxe8w');
+			// https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+		});		
+
+		$("div.phpi").click(function(){
+			$("iframe").attr('src','https://nl.wikipedia.org/wiki/XAMPP');
+		});
+	
+		$("div.canvasi").click(function(){
+			$("iframe").attr('src','https://codepen.io/PrabuDzak/pen/PWybOV');
+		});
+
+		$("div.bootstrapi").click(function(){
+			$("iframe").attr('src','https://codeshare.io/G8bbdZ'); // goed
+		});
+
+		$("div.sassi").click(function(){
+			$("iframe").attr('src','https://sass-lang.com/documentation');
+		});
+
+		$("div.lessi").click(function(){
+			$("iframe").attr('src','http://lesscss.org/#variables');
+		});
+
+		$("div.js").click(function(){
+			$("iframe").attr('src','https://htmlcheatsheet.com/js/');
+		});		
 
 		$("div.jqueryi").click(function(){
-			$("iframe").attr('src','https://jquery.com/download/');
+			$("iframe").attr('src','https://jquery.com/download/'); // goed
 		});
 
+		$("div.vuei").click(function(){
+			$("iframe").attr('src','https://cli.vuejs.org/guide/creating-a-project.html#vue-create');
+		});
 
-	
 	</script>
 </body>
 </html>
