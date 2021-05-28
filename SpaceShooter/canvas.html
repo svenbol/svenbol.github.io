@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="icon" type="image/png" href="https://static.thenounproject.com/png/1770905-200.png">
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<style>
+		@font-face {
+			font-family: klok;
+
+			src:url("woff/Flat.woff");
+
+			/*
+			src:url("woff/Flat.woff");
+			src:url("woff/Stop.woff");
+			*/
+		}
+
+		#clock-wrap{
+			font-family: klok;
+			position: absolute;
+			top: 0px;
+			right: 1px;
+			font-size: 50px;
+			user-select: none;
+			width: 78px;
+			height: 68px;
+			background-color: rgba(255,255,255,0.5);
+
+			border-width: 2px;
+    		border-style: outset;
+    		border-color: rgb(118, 118, 118);/*rgb(133, 133, 133));*/
+    		border-image: initial;
+		}
+
+	</style>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body onresize="init()">
+
+	 <div id="canvas-wrap" class="wrapper"></div>
+	 <div class="bar barP1"><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div></div>
+
+	 <div class="bar barP2"><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div><div class='lifeBlock'></div></div>
+	
+	<button id="btnTest" class="bg-dark text-white d-none" onclick=""><3</button>
+
+	
+
+	<div id="clock-wrap" class="rounded"><p id="clock" class="text-center"></p></div>
+
+	<!-- IMAGES -->
+	<img id="bg-img" src="https://miro.medium.com/max/4800/1*QL28VV1ezVvGA4edtqmOxQ.jpeg">
+	<img id="grassblock" src="./img/grassblock.png">
+	<img id="spaceship" src="./img/ship.png">
+	<img id="spaceshipz" src="./img/ship2.png">
+	<img id="bullet" src="./img/bullet.png">
+	<img id="bullet2" src="./img/bullet2.png">
+	<img id="clouds" src="./img/bg-cloud.png">
+
+	<audio id="sound" autoplay onended="loopSounds()">
+  		<source id="soundFile" src="./sounds/sound.mp3" type="audio/mpeg">
+	</audio>
+
+	<div id="soundControl" class="row">
+		<button id="btnPlay" class="col-12 rounded" onclick="controlSounds()"><i class='fas fa-play'></i></button>
+		<!--
+		<button id="btnPause" class="col-3 rounded" onclick="document.getElementById('sound').pause()"><i class='fas fa-pause'></i></button>
+		<button id="btnVolUp" class="col-3 rounded" onclick="document.getElementById('sound').volume+=0.1"><i class='fas fa-plus'></i></button>
+		<button id="btnVolDown" class="col-3 rounded" onclick="document.getElementById('sound').volume-=0.1"><i class='fas fa-minus'></i></button>
+		-->
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+	<script src="app.js"></script>
+	<!--
+	<script>
+
+		window.onload = init();
+		
+		window.onresize = resized();
+
+		function init(){
+			w = window.innerWidth;
+			h = window.innerHeight;
+		
+			interval = 40;
+		
+			var canvas_wrapper = document.getElementById('canvas-wrap');
+		  		canvas_wrapper.innerHTML = '<canvas id="canvas" width="' + w + '" height="'+h+'"></canvas>';
+			var canvas = document.getElementById("canvas");
+		
+			c = canvas.getContext("2d");
+		
+				x = 0;
+				y = 0;
+		
+				cW = 100;
+				cH = 100;
+		
+				Xvelocity = 5;
+				Yvelocity = 30;
+		
+			renderer = setInterval(function(){ render(); },interval);
+		
+		}
+		
+		function render(){
+			clearCanvas();
+		
+			movingRect();
+		}
+		
+		function resized(){
+			clearInterval(renderer);
+			init();
+		}
+		
+		function clearCanvas(){
+		  	c.clearRect(0, 0, w, h);
+		}
+		
+		function movingRect(){
+			c.fillStyle= 'rgba(17,50,17,0.6)';
+		
+			x += Xvelocity;
+			y += Yvelocity;
+		
+			if( x + cW >= w || x <= 0 ) Xvelocity *= (-1); 
+			if( y + cH >= h || y <= 0) Yvelocity *= (-1);
+		
+			c.fillRect(x,y,cW,cH);
+		}
+
+		
+	</script>
+	-->
+</body>
+</html>
