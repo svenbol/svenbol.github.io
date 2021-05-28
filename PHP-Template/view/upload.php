@@ -4,7 +4,7 @@ return upload();
 
 function upload(){
     include_once "connect.php";
-    include_once "./class/item.class.php";
+    include_once "./class/Item.class.php";
     $i = new Item();
 
     if(isset($_POST["upload"])){

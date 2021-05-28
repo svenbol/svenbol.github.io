@@ -4,7 +4,7 @@ return gallery();
 
 function gallery(){
 	include "connect.php";
-	include_once "./class/item.class.php";
+	include_once "./class/Item.class.php";
 
 	$i = new Item();
 

@@ -5,7 +5,7 @@ include_once "./class/Page.class.php";
 $p = new Page();
 //----------------------------------------------------------------------------------------------------------------
 $p->addFavicon("./img/favicon.png");
-$p->title = "Title Page";
+$p->title = "Winkeltje <3";
 $p->addCss("./css/style.css");
 $p->addJs("./app/app.js");
 // Bootstrap in Page.class.php

@@ -3,7 +3,7 @@
 	basketAdd();
 
 function basketAdd(){
-    include "./class/basketItem.class.php";
+    include "./class/BasketItem.class.php";
     session_start();
 
     if(isset($_GET["basketAdd"])){ 

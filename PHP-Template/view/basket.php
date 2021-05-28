@@ -11,8 +11,8 @@
 	
 	function basket(){
 		include_once "connect.php";
-	    include_once "./class/item.class.php";
-	    include_once "./class/basketItem.class.php";
+	    include_once "./class/Item.class.php";
+	    include_once "./class/BasketItem.class.php";
 
 	    session_start();
 	    $i = new Item();
