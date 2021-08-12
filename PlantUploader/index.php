@@ -26,9 +26,11 @@ if($chosenPlant) {
 	$file = 'detail';
 }
 
+
 $p->navbar = include_once "./views/navBar.php";
 $p->content = include_once "./views/$file.php";
 //----------------------------------------------------------------------------------------------------------------
+//$page = 
 $page = include "./template/page.php";
 echo $page;
 ?>					

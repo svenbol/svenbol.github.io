@@ -280,20 +280,30 @@ a, a:link , a:visited , a:hover, a:active {
 }
 
 /* UPLOAD FORM */
-.upload-form input{
-	width: 50%;
-	display: list-item;
-	margin-left: 10px;
-}
 
-.upload-form input[type='text'] {
-	width: 25%;
-}
+  .uploadForm{
+    width: 350px;
+    margin: 0 auto;
+    background-color: rgba(34,34,34,0.8);
+    border: 3px solid rgba(15,5,15,0.75);
+    border-radius: 25px;
+    padding: 50px;
+  }
+
 
 .idinput{
 	width: 60px;
 	height: 30px;
 	font-size:20px;
+}
+
+.update{
+  width: 300px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: rgba(34,34,34,0.8);
+  border: 3px solid rgba(15,5,15,0.75);
+  border-radius: 25px;
 }
 
 .updatetable tr{
@@ -376,7 +386,7 @@ input[type='submit']{
 }
 
 input[type='submit']:hover{
-    border: solid #222 4px;
+   
     background: rgba(0,200,55,0.5);
     
 }

@@ -9,9 +9,11 @@ function gallery(){
 	$qry= "SELECT * FROM tbl_plants ORDER BY name ASC" ;
 	$res= mysqli_query($con,$qry) or die("SELECTING FAILED : gallery");
 
-	$out = "<div id='gallery' class='d-block mx-auto'>";
+	$out = "<div id='gallery' class='container d-block mx-auto'>";
+	$counter = 1;
 	
 	while($dbRow= mysqli_fetch_array($res)){
+		
 		$id = $dbRow['id'];
 		$name = $dbRow['name']; 
 		$img = $dbRow['img'];
@@ -34,17 +36,19 @@ function gallery(){
 			$extra = $dbRow['extra'];
 		*/
 
-        if(substr($img, 0, 4) == "http") {
-          $out .= include("./template/galleryItemLINK.php");
-        }else{
-          $out .= include("./template/galleryItemIMGFOLDER.php");
-        }
-	}
-	$out .= "</div>";
+		if($counter == 1) $out .= "<div class='row'>"; 
 
-	$chosenPlant = isset($_GET['plant']);
-	if($chosenPlant) header("Location: ./detail.php?plant=$chosenPlant");
-	else{ }
+        if(substr($img, 0, 4) == "http") $out .= include("./template/galleryItemLINK.php");
+        else $out .= include("./template/galleryItemIMGFOLDER.php");
+
+        if($counter == 3) $out .= "</div>"; 
+
+
+		$counter++;
+		if($counter > 3) $counter = 1;
+	}
+
+	$out .= "</div>";
 
 	return $out;
 }

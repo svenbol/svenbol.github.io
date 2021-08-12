@@ -58,7 +58,18 @@
 
 			$page .= "</div>";
 			return $page;
-	    }else header("Location: ./view/index.php");
+	    }else{ 
+	    	$page = "<div id='basket' class='w-100 center bg-maison container'>";
+			$page .= "<div class='row mb-4 shade'>
+						<h4 class='center col-1 pt-3'> IMG </h4>
+						<h4 class='center col-3 pt-3'> NAME </h4>
+						<h4 class='center col-3 pt-3'> AMOUNT </h4>
+						<h4 class='center col-3 pt-3'> TOTAL </h4>
+					</div>";
+			$page .= "</div>";
+			return $page;
+	    } 
+	    //header("Location: ./index.php");
 
 	    
 	    

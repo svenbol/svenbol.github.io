@@ -43,7 +43,13 @@ body > *{
 		height: 300px;
 	}
 
-	#galleryItemId{} #galleryItemName{} #galleryItemImg{}
+	#galleryItemId{} #galleryItemName{} 
+
+	#galleryItemImg{
+		max-width: 152px;
+		max-height: 152px;
+
+	}
 
 /* ___ DETAIL ____________________________*/
 	

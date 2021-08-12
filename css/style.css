@@ -262,7 +262,7 @@ a.article:hover {
     MEDIAQUERIES (bootstrap 768px sm )
 ----------------------------------------------------- */
 .overlay{
-      width: 100vw; 
+      width: 95%; 
       height: 100%;
       padding-top: 15%;
       /*padding-top: 25%;*/
