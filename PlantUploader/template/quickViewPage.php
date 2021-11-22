@@ -1,11 +1,10 @@
 <?php
 return "
-<div id='item' class='d-inline-block col-4 mx-auto px-2 align-top font-weight-bold text-center mainColor mainBorder' style='background-image:url($img)'>
-    <a href='../index.php?plant=$id' alt='$img' class='text-center w-100'>
-        
+<a href='../index.php?plant=$id' alt='$img' class='d-inline-block col-4 mx-auto px-2 align-top font-weight-bold text-center mainColor mainBorder'>
+	<div id='item' class='' style='background-image:url($img)'>
     	<p id='itemName' class='text-light mb-0 text-center w-100'>$name</p>
-    </a>
-</div>
+	</div>
+</a>
 <div class='col-7 text-center'>
 	<div class='row'>
 		<div class='col-3 mainColor mainBorder font-weight-bolder'> Humid </div>

@@ -7,6 +7,7 @@ return "<!DOCTYPE html>
 	$p->bootstrapCss
 	$p->css
 	$p->favicon
+	$p->fontAwesomeJS
 
 </head>
 <body class='bg-dark mx-auto text-white'>

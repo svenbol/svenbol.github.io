@@ -23,6 +23,8 @@ body > *{
 		width: 100%;
 		min-width: 790px;
 		box-shadow: 2px 2px rgb(200 50 50 / 50%), 3px 3px rgb(50 50 200 / 50%);
+		position: relative;
+		
 	}
 
 	nav img {

@@ -84,7 +84,7 @@ body{
 	}
 
 	#center{
-		width: 760px;
+		width: 790px;
 	}
 
 	#center a{
@@ -109,6 +109,38 @@ body{
 		text-shadow: 1px 2px rgba(25,100,25,0.66);
 	}
 
+	.navSideBtn{
+		width: 40px;
+		height: 40px;
+		display: block;
+		border: none;
+		position: fixed;
+		right: 2vw;
+		/*top: 150px;*/
+	}
+
+	.navSideBtn:hover{
+		filter: drop-shadow(2px 4px 6px black);
+		border: 0px;
+		transform: scale(1.5);
+	}
+
+	a .navSideBtn:hover{
+		border:none !important;
+	}
+
+	.sideOne{
+		top: 150px;
+	}
+
+	.sideTwo{
+		top: 200px;
+	}
+
+	.sideThree{
+		top: 250px;
+	}
+
 /* Search Navbar  */
 	#searchField{
 		height: 83px;
@@ -127,7 +159,7 @@ body{
 	}
 
 	
-	#searchField:hover , #searchField:focus , #searchField:active , #btnMenu:hover , #btnAdd:hover{
+	#searchField:hover , #searchField:focus , #searchField:active , #btnMenu:hover , #btnAdd:hover {
 		background: #343a40;
 	}
 
@@ -269,7 +301,9 @@ body{
 		margin-right:124px; 
 	}
 	
-	.uploadForm input[type=submit] , #rightDetail input[type=submit]{
+	.uploadForm input[type=submit] , 
+	#rightDetail input[type=submit] , 
+	.ideaForm input[type=submit]{
 		width: 200px;
 		height: 100px;
 		text-align:center;
@@ -283,7 +317,9 @@ body{
 		font-weight: bold;
 	}
 	
-	.uploadForm input[type=submit]:hover, #rightDetail input[type=submit]:hover{
+	.uploadForm input[type=submit]:hover, 
+	#rightDetail input[type=submit]:hover,
+	.ideaForm input[type=submit]:hover{
 		border: 3px double rgba(25,150,25,0.66);
 		background: rgba(75,250,75,0.66);
 	}
@@ -500,12 +536,55 @@ body{
 	#quickView #itemName{
 		position: absolute;
         bottom: 0;
-        text-shadow: 1px 1px 2px black;
-        text-shadow: -1px -1px 2px black;
+        text-shadow: 1px 1px 2px black, -1px -1px 2px black;
 
 	}
 
+/* RETREATPAGE -------------------------------------------------------------------- */
 
+/* IDEAPAGE ------------------------------------------------------------------------ */ 
+	.ideaItem{
+		background-size: 100%;
+	}
+
+	.ideaItem a{
+		text-decoration: none;
+		color: white;
+
+		text-shadow: 1px 2px rgba(25,100,25,0.66), -1px -2px black;
+	}
+
+	.ideaItem:hover{
+		transform: scale(1.01);
+	}
+
+	.ideaForm input[type=text]{
+		max-width: 	250px;
+		width: 225px;
+		border-radius: 25px;
+		padding-left: 15px;
+	}
+
+	.ideaForm input[type=checkbox]{
+		display: none;		
+	}
+
+	.ideaForm input[type=checkbox] + label{
+		display:inline-block;
+    	padding: 0 0 0 0px;
+    	background-repeat: no-repeat;
+    	height: 50px;
+    	width: 50px;
+    	background-size: 100%;
+	}
+
+	.checkPlantImg + label:hover{
+		transform: scale(1.3);
+	}
+
+	.ideaForm input[type=checkbox]:checked + label{
+    	border: 2px solid rgba(75,250,75,0.66) ;
+	}
 /* SELFMADE ------------------------------------------------------------------------ */
 
 	.mainColor{
@@ -526,6 +605,14 @@ body{
 
 	.mainBorderBottom{
 		border-bottom: 2px ridge rgba(25,150,25,0.66);
+	}
+
+	.mainShadow{
+		text-shadow: 1px 2px rgba(25,100,25,0.66);
+	}
+
+	.mainSubShadow{
+		text-shadow: 1px 2px rgba(25,100,25,0.66),2px 1px black;
 	}
 
 	.bg-nutri{/*
@@ -561,6 +648,16 @@ body{
 	
 	.w-66{
 		width: 65%;
+	}
+
+	.italic{
+		font-style: italic;
+	}
+
+	.centerAll{
+		display: flex;
+  		justify-content: center;
+  		align-items: center;
 	}
 
 	hr {
