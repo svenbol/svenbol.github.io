@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon.png">
 
     <title>Sven Bollaerts</title>
 
@@ -16,45 +17,63 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="">
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar" class="">
             <div class="sidebar-header d-block mx-auto">
                 <h3>Sven Bollaerts</h3>
-                <a href="http://svenbol.000webhostapp.com">
+                <a href="https://svenbol.github.io/">
                 <img src="img/test.jpg" id="me" class="w-75 d-block mx-auto"></a>
-                <b class="w-100 d-block mx-auto text-center mt-3 shadowz">.Net Developer</b>
+                <b class="w-100 d-block mx-auto text-center mt-3 shadowz">Web Developer</b>
             </div>
 
             <ul class="list-unstyled components">
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Job Profiles</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Full Stack C#</a>
-                        </li>
-                        <li>
-                            <a href="#">Web C#</a>
-                        </li>
-                        <li>
-                            <a href="#">Web PHP</a>
-                        </li>
+                        <li> <a href="#">Full Stack JR</a> </li>
+                        <li> <a href="#">Web PHP</a> </li>
+                        <li> <a href="#">Web JS</a> </li>
                     </ul>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">About</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Edegem</a>
-                            
-                        </li>
-                        <li>
-                            <a href="#"> Rijbewijs B </a>
-                        </li>
-                        <li>
-                            <a href="#">24/02/1994</a>
-                        </li>
+                        <li> <a href="#">Lier</a> </li>
+                        <li> <a href="#">Rijbewijs B</a> </li>
+                        <li> <a href="#">24/02/1994</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#skillSubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Skills</a>
+                    <ul class="collapse list-unstyled container" id="skillSubMenu">
+                        <div class='row'> 
+                            <a href='https://www.w3schools.com/html/' class='iconsLearned col-4 p-1'><img src='./img/HTML.png'></a>
+                            <a href='https://www.w3schools.com/css/' class='iconsLearned col-4 p-1'><img src='./img/CSS.png'></a>
+                            <a href='https://www.w3schools.com/js/' class='iconsLearned col-4 p-1'><img src='./img/JS.png'></a>
+                        </div>
+                        <div class='row'> 
+                            <a href='https://www.w3schools.com/php/' class='iconsLearned col-4 p-1'><img src='./img/php.png'></a>
+                            <a href='https://www.w3schools.com/php/php_mysql_intro.asp' class='iconsLearned col-4 p-1'><img src='./img/mysql.png'></a>
+                            <a href='https://www.npmjs.com/' class='iconsLearned col-4 p-1'><img src='./img/npm.png'></a>
+                        </div>
+                        <div class='row'> 
+                            <a href='https://www.w3schools.com/jquery/' class='iconsLearned col-4 p-1'><img src='./img/jquery.png'></a>
+                            <a href='https://getbootstrap.com/' class='iconsLearned col-4 p-1'><img src='./img/bootstrap.png'></a>
+                            <a href='https://sass-lang.com/dart-sass' class='iconsLearned col-4 p-1'><img src='./img/sass.png'></a>
+                        </div>
+                        <div class='row'>
+                            <a href='https://github.com/' class='iconsLearned col-4 p-1'><img src='./img/github.png'></a>
+                            <a href='https://heroku.com/' class='iconsLearned col-4 p-1'><img src='./img/heroku.png'></a>
+                            <a href='https://getcomposer.org/' class='iconsLearned col-4 p-1'><img src='./img/composer.png'></a>
+                        </div>
+                        <div class='row'>
+                            <a href='https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON' class='iconsLearned col-4 p-1'><img src='./img/oop.PNG'></a>
+                            <a href='https://threejs.org/' class='iconsLearned col-4 p-1'><img src='./img/three-js-logo.png'></a>
+                            <div href='#' class='iconsLearned col-4 p-1'></div>
+                        </div>
+
                     </ul>
                 </li>
                 <li>
@@ -92,73 +111,148 @@
 
 <!-- --------------- GALLERY -------------------------------------------------- -->
 <div class="row mx-auto" id="gallery">
-  
-        <!-- YOGHURTBALL -->
+        <!-- POKE PONG JQUERY -->
         <div class="col-sm-12 col-md-4 mt-5" id="works">
             <a href="/pokemon/index22.html">
                 <img class="thumbnail" src="img/pokeball.png" id="jquery"></a>
-            <a class="col-11 overlay" href="/pokemon/index22.html">
-                <p>Canvas:</p> <p>Poké Pong</p> </a>
+            <a class="overlay" href="/pokemon/index22.html">
+                <p>JQuery x Canvas:</p> 
+                <p>Poké Pong</p> 
+            </a>
         </div> 
-            
-
+  
         <!-- trackUploader PHP + DB -->
         <div class="col-sm-12 col-md-4 mt-5" id="works">
-            <a href="http://svenbol.000webhostapp.com/TrackUploader/index.php">
+            <a href="http://trackuploader.herokuapp.com">
                 <img class="thumbnail" src="img/phptrackuploader.png" id="php"></a>
-            <a class="col-11 overlay" href="http://svenbol.000webhostapp.com/TrackUploader/index.php">
-                <p>PHP:</p> <p>Track Uploader</p></a>
+            <a class="overlay" href="http://trackuploader.herokuapp.com">
+                <p>PHP:</p> 
+                <p>TrackUploader</p>
+            </a>
          </div>
-            
-            
-          <!-- BOOTSTRAP gallery --> 
+        
+        <!-- Plant Uploader -->
         <div class="col-sm-12 col-md-4 mt-5" id="works">
-            <a href="/bsgallery/HTML/index.html">
-                <img class="thumbnail" src="img/bsgallery.png" id="bs"></a>
-            <a class="col-11 overlay" href="/bsgallery/HTML/index.html">
-                <p>Bootstrap:</p> <p>Gallery</p></a>
-        </div> 
+            <a href="https://plantuploader.herokuapp.com/" target="_blank">
+                <img class="thumbnail" src="img/phpplantuploader.png" id="php"></a>
+            <a class="overlay" href="https://plantuploader.herokuapp.com/">
+                <p>PHP x Bootstrap:</p>
+                <p>PlantUploader</p>
+            </a>
+        </div>
 
-
-          <!-- WORDPRESS html/css -->
+        <!-- WORDPRESS html/css -->
         <div class="col-sm-12 col-md-4 mt-5" id="works">
             <a href="https://www.natuurpuntantwerpenstad.be/" target="_blank">
                 <img class="thumbnail" src="img/wpnas.png" id="wp"></a>
-            <a class="col-11 overlay my-auto" href="https://www.natuurpuntantwerpenstad.be/" target="_blank">
-            <p>WordPress:</p><p>Natuurpunt</p></a>
+            <a class="overlay my-auto" href="https://www.natuurpuntantwerpenstad.be/" target="_blank">
+            <p>WordPress:</p>
+            <p>Natuurpunt</p>
+        </a>
         </div>
-            
-  
-        <!-- Voeding -->    
-        <div class="col-sm-12 col-md-4 mt-5" id="works" >
-            <a href="http://svenbol.000webhostapp.com/recepten/pageController.php">
-                <img class="thumbnail" src="img/store.png" id="php"></a>
-            <a class="col-11 overlay" href="http://svenbol.000webhostapp.com/recepten/pageController.php">
-                <p>Bootstrap:</p> <p>In Progress</p></a> 
-        </div> 
 
-
-        <!-- Zombie GroentenWinkel x mandje 
-        <div class="col-sm-12 col-md-4 mt-5" id="works">
-            <a href="/groentewinkel/JS_PF_eindoefening.html">
-                <img class="thumbnail" src="img/groentewinkel.png" id="jquery"></a>
-          <div class="col-11 overlay">JS: GroentenWinkel </div>
-        </div> 
-        -->
-        
-        
         <!-- THREE.js Game -->
-          <div class="col-sm-12 col-md-4 mt-5" id="works">
+        <div class="col-sm-12 col-md-4 mt-5" id="works">
             <a href="/test/game.html">
                 <img class="thumbnail" src="img/threejs.png" id="threejs"></a>
-            <a class="col-11 overlay" href="/test/game.html"><p>ThreeJS:</p><p>In Progress</p></a>
-          </div>
+            <a class="overlay" href="/test/game.html">
+                <p>ThreeJS:</p>
+                <p>In Progress</p>
+            </a>
+        </div>
+
+        <!-- CRUD SHOP x PHP -->
+        <div class="col-sm-12 col-md-4 mt-5" id="works">
+            <a href="https://crud-php-shop.herokuapp.com/">
+                <img class="thumbnail" src="img/shop.png" id="js"></a>
+            <a class="overlay" href="https://crud-php-shop.herokuapp.com/">
+                <p>PHP x MySQL:</p>
+                <p>CRUD & Shop</p>
+            </a>
+        </div>
+
+        <!-- CANVAS x JS -->
+        <div class="col-sm-12 col-md-4 mt-5" id="works">
+            <a href="/SpaceShooter/canvas.html">
+                <img class="thumbnail" src="img/spaceShooter.png" id="js"></a>
+            <a class="overlay" href="/SpaceShooter/canvas.html">
+                <p>Canvas x JS:</p>
+                <p>In Progress</p>
+            </a>
+        </div>
+
+        <!-- Meal Uploader -->
+        <!--
+        <div class="col-sm-12 col-md-4 mt-5" id="works">
+            <a href="https://mealuploader.herokuapp.com/">
+                <img class="thumbnail" src="img/mealuploader.png" id="php"></a>
+            <a class="overlay" href="https://mealuploader.herokuapp.com/">
+                <p>PHP x SASS:</p>
+                <p>MealUploader</p>
+            </a>
+        </div>
+        -->
+        <!-- De Jardin -->
+        <!--
+         <div class="col-sm-12 col-md-4 mt-5" id="works">
+            <a href="/DeJardin/index.html">
+                <img class="thumbnail" src="img/dejardin2.png" id="php"></a>
+            <a class="overlay" href="/DeJardin/index.html">
+                <p>JS Drag/Drop: </p>
+                <p>De Jardin</p>
+            </a>
+        </div>
+        -->
+        <!-- CheatSheet Picker -->
+        <!--
+        <div class="col-sm-12 col-md-4 mt-5" id="works">
+            <a href="/CheatSheetPicker/index.html">
+                <img class="thumbnail" src="img/cheatsheetpicker.jpg" id="php"></a>
+            <a class="overlay" href="/CheatSheetPicker/index.html">
+                <p>Learn Easy</p>
+                <p>CheatSheet</p>
+            </a>
+        </div>
+        -->
 
         <!-- Pure Css Eyes as MouseTracker -->
         <div class="col-sm-12 col-md-4 mt-5" id="works">
             <a href="/PureCss/index.html">
                 <img class="thumbnail" src="img/PureCssEyes.png" id="PureCss"></a>
-            <a class="col-11 overlay" href="/PureCss/index.html"><p>PureCss:</p><p>Eyes Follow Mouse</p></a>
+            <a class="overlay" href="/PureCss/index.html">
+                <p>PureCss:</p>
+                <p>Eyes Follow Mouse</p></a>
+          </div>
+
+        <!-- Voeding -->
+        <!--    
+        <div class="col-sm-12 col-md-4 mt-5" id="works" >
+            <a href="http://svenbol.000webhostapp.com/recepten/pageController.php">
+                <img class="thumbnail" src="img/store.png" id="php"></a>
+            <a class="overlay" href="http://svenbol.000webhostapp.com/recepten/pageController.php">
+                <p>Bootstrap:</p> 
+                <p>In Progress</p></a> 
+        </div> 
+        -->      
+
+        <!-- BOOTSTRAP gallery --> 
+        <!--
+        <div class="col-sm-12 col-md-4 mt-5" id="works">
+            <a href="/bsgallery/HTML/index.html">
+                <img class="thumbnail" src="img/bsgallery.png" id="bs"></a>
+            <a class="overlay" href="/bsgallery/HTML/index.html">
+                <p>Bootstrap:</p> 
+                <p>Gallery</p></a>
+        </div> 
+       -->
+
+       <!-- GW2 Helper -->
+       <div class="col-sm-12 col-md-4 mt-5" id="works">
+            <a href="https://guildwars2.herokuapp.com/">
+                <img class="thumbnail" src="img/gw2helper.png" id="js"></a>
+            <a class="overlay" href="https://guildwars2.herokuapp.com/">
+                <p>JS x FetchAPI</p>
+                <p>GW2 Helper</p></a>
           </div>
 
       </div>
@@ -188,28 +282,19 @@
 </form>
 </div>
 
-<!-- --------------- CV ------------------------------------------------------- -->
-<!--
-<div class="cv-div hide  mt-5 mx-auto col-sm-12">
-    <iframe 
-    src="Sven_Bollaerts_CV.pdf" title="Download Cv" 
-    align="top" height="1400px" width="100%" 
-    frameborder="0" scrolling="auto" 
-    target="Message"></iframe>
-</div>
--->
+
 <p class="mb-5"></p>
 
       
-    </div>
-    </div>
+</div>
+</div>
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {

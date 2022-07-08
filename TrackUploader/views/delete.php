@@ -30,7 +30,7 @@ function getTrackById(){
     		<hr class='hrTitel'>
     		<div class='hoofdtitel'><h1><span> Update Track </span></h1></div>
     		<hr class='hrTitel'>
-    		<form method='post'> 
+    		<form method='post' class='update'> 
     		<table class='updatetable'>
     				<tr><td><span>Id:</span> $id <hr></td>
     					<td><input type='text' name='_id' value='$id' maxlength='2'> <hr></td></TR>
@@ -57,44 +57,37 @@ function getTrackById(){
 
 function updater(){
     include_once "connect.php";
+
 	$id=$_POST['_id'];
 	$name = $_POST['_name'];
 	$img=$_POST['_src'];
 	$artist=$_POST['_artist'];
-	$link=$_POST['_link'];
+	$link=$_POST['_link_track'];
 
+    
 	$qryUpdate="UPDATE `tbl_tracks` SET `name_track`='$name',`img_track`='$img',`artist`='$artist',`link_track`='$link' WHERE `id_track`= $id";
 	$res=mysqli_query($con,$qryUpdate) or die('Track UPDATER() kapot! ');
 	
-	header("Location: https://svenbol.000webhostapp.com/TrackUploader/index.php?pagina=gallerij");
-    die();
-	/*
-	$outUpdate = "<div class='hoofdtitel' ><h1><span>Track Update! </span></h1>
-                <hr class='hrTitel'></div>
-	            <span> Track updated!</span>
-				<span>
-				    <a href='index.php?pagina=gallerij'>Check the gallery!</a>
-				</span>";
-	return $outUpdate;*/
+    return header("Location: ../index.php");
 }
 
 function verwijder(){
 	include_once "connect.php";
 	$id=$_POST['id'];
-
+    
 	$qryDelete="DELETE FROM tbl_tracks WHERE id_track='$id'";
-	$res2=mysqli_query($con,$qryDelete) or die('Query delete kapot');
+	$res=mysqli_query($con,$qryDelete) or die('Query delete kapot');
+    
+    /* AUTO FIX ID's */
+            $qryIdFix1 = "SET  @num := 0";
+            $qryIdFix2 = "UPDATE tbl_tracks SET id_track = @num := (@num+1)";
+            $qryIdFix3 = "ALTER TABLE tbl_tracks AUTO_INCREMENT =1";
+            
+            $res1 = mysqli_query($con,$qryIdFix1) or die ('Cannot reset auto increment : delete : 1');
+            $res2 = mysqli_query($con,$qryIdFix2) or die ('Cannot reset auto increment : delete : 2');
+            $res3 = mysqli_query($con,$qryIdFix3) or die ('Cannot reset auto increment : delete : 3');
 
-	$outdelete = "
-	            <div class='hoofdtitel' ><h1><span>Track Deleted ! </span></h1>
-                <hr class='hrTitel'></div>
-	            <span> Track deleted!</span>
-				<span>
-				    <a href='index.php?pagina=gallerij'>Check the gallery!</a>
-				</span>";
-
-
-	return $outdelete;
+    return header("Location: ../index.php");
 }
 
 ?>

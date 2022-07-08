@@ -5,7 +5,7 @@ return "<!DOCTYPE html>
 <title>$paginaData->titel</title>
 <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
 $paginaData->css
-$paginaData->embeddedStyle
+<link rel='icon' type='image/png' href='../img/favicon.png'>
 </head>
 <body>
 <div class='bgcolor'>

@@ -1,0 +1,179 @@
+/*
+body > *{
+	max-width: 800px;
+}
+*/
+
+/* ___ MAIN ______________________________*/
+	body{
+		background-color: rgb(186,186,255);
+	}
+
+	.main{
+		width: 800px;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.main > *{
+		max-width: 800px;
+	}
+
+/* ___ NAV _______________________________*/
+
+	nav {
+		height: 230px;
+		background: rgb(255,179,186);
+		background: linear-gradient(0deg, rgba(255,179,186,1) 25%, rgba(225,170,225,1) 75%);
+		width: 100%;
+		min-width: 790px;
+		position: fixed;
+		top:0px;
+		z-index: 1000;
+	}
+
+
+/* ___ UPLOAD ____________________________cheat only*/
+
+	#upload{
+		
+	}
+
+/* ___ GALLERY ___________________________*/
+	
+	#gallery{}
+
+	#galleryItem{
+		height: 300px;
+		border:2px ridge red;
+	}
+
+	#galleryItemId{} #galleryItemName{} #galleryItemImg{}
+
+/* ___ DETAIL ____________________________*/
+	#detail{}
+
+	#detail > img{
+		width: 100%;
+		height: auto;
+		max-height: 200px;
+		max-width: 200px;
+	}
+
+	#detail > *{
+		height: 80px;
+	}
+
+	.invertImg img{
+		filter: invert(1);
+	}
+
+	.invertImg > a{
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		padding-left: -5px;
+	}
+
+	.invertImg > a:hover{
+		box-shadow: 0px 0px 5px rgba(21,21,21,0.8);
+	}
+
+
+/* ___ BOLsTRAP____________________________*/
+	/*---POSITION--------------------------*/
+		.left{
+			display: block;
+			float: left;
+			vertical-align: top;
+			margin-top: 0px;
+		}
+	
+		.lefInline{
+			display: inline-block;
+			float: left;
+			vertical-align: top;
+		}
+	
+		.right{
+			display: block;
+			float: right;
+			vertical-align: top;
+			margin-top: 0px;
+	
+		}
+	
+		.rightInline{
+			display: inline-block;
+			float: right;
+			vertical-align: top;
+			
+		}	
+	
+		.center{
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			vertical-align: top;
+		}
+	
+		.centerInline{
+			display: inline-block;
+			text-align: center;
+			vertical-align: top;
+		}
+	/*---WIDTH------------------------------*/
+		.w-33{
+			width: 32.5%;
+			max-width: 32.5%;
+		}
+	
+		.w-60{
+			width: 59.5%;
+		}
+	
+		.w-66{
+			width: 65.5%;
+		}
+	
+		.w-80{
+			width: 79.5%;
+			max-width: 79.5%;
+		}
+	
+		.w-90{
+			width: 89.5%;
+			max-width: 89.5%;
+		}
+	/*---COLOR-----------------------------*/
+		.colorMain{
+			background: rgb(255,179,186);
+			background: linear-gradient(0deg, rgba(255,179,186,1) 25%, rgba(225,170,225,1) 75%);
+		}
+
+		.colorMainz{
+			background: rgb(255,179,186);
+			background: linear-gradient(0deg, rgba(255,179,186,1) 50%, rgba(225,170,225,1) 100%);
+		}
+
+
+	.text-deco-no{       
+        text-decoration: none;
+	}
+
+	.bg-black{
+		background-color: black;
+	}
+
+	.bg-maison{
+		background-color: rgba(21,21,21,0.5);
+	}
+
+	.head{
+		background: black;
+		color: white;
+	}
+
+	.shade{
+		text-shadow: 3px 2px rgba(200,50,50,0.5), -3px -2px rgba(50,50,200,0.5);
+	}

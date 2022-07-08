@@ -40,6 +40,15 @@ $server = "postgres://inxmshuupeoyxo:f11bd96c6de474b35577cd6b470552c5d567efdd3e7
 $username = "inxmshuupeoyxo"; // $url["user"];
 $password = "f11bd96c6de474b35577cd6b470552c5d567efdd3e7c9599211b3d2d6c24528e"; //$url["pass"];
 $db = "d2etsfdv58166o"; //substr($url["path"]);
+*/
+
+
+// Heroku trackuploader
+/*
+$server = "remotemysql.com";
+$username = "GsN8DgJAZN";
+$password = "Wm5glX6EBD";
+$db = "GsN8DgJAZN";
 
 $conn = new mysqli($server,$username,$password,$db);
 */

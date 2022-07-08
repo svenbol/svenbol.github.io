@@ -1,0 +1,53 @@
+$subNavHeight: 35px
+$navHeight: 50px
+
+nav
+	width: 100vw
+	height: $navHeight
+	background-color: yellow
+	position: absolute
+	top: 0
+	left: 0
+	overflow-x:hidden
+
+nav:nth-of-type(2)
+	width: 100vw
+	height: $subNavHeight
+	background-color: green
+	position: absolute
+	top: $navHeight
+	
+.row > .col-1
+	height: 100%
+	border: 2px dashed black
+	border-top: 0
+ 
+.row:nth-of-type(2) > .col-1
+	border-bottom: 0
+
+.row > .col-1:last-of-type
+	border-right: 0
+
+.content
+	width: 100%
+	position: absolute
+	top: $navHeight + $subNavHeight
+
+nav:nth-of-type(1) .col-1 img
+	width: 100%
+	max-height: $navHeight - 5
+
+nav:nth-of-type(2) .col-1 img
+	width: 100%
+	max-height: $subNavHeight - 5
+	
+
+//----------------------
+
+iframe
+	width: 100vw
+	height: 90vh
+	display: block
+	position: fixed
+	top: $navHeight + $subNavHeight
+	left: 0px

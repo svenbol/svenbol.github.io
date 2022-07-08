@@ -1,0 +1,433 @@
+body{ 
+    display: flex;
+    background: grey;
+    overflow: hidden;
+    /*background: rgb(205,171,228); 
+    background: linear-gradient(69deg, rgba(205,171,228,1) 20%, rgba(45,253,172,1) 100%);
+    */ 
+}
+
+div{
+    position: absolute;
+    display: block;
+}
+
+.titel{
+    width: 100%;
+    display: block;
+   
+}
+
+.arrowImg{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+
+h1{
+    width: 100%;
+    height: 50px;
+    font-style: italic;
+
+    color: yellow;
+    text-shadow: 5px 5px 1px darkblue, -5px -5px 1px darkblue;
+    
+    text-align: center;
+}
+
+.lucht{
+    width: 100%;
+    height: 100%;
+}
+
+/* BOX ALLES */
+    .all{
+        width: 300px;
+        height: 300px;
+        background-color: yellow;
+        left: calc((50vw) - 145px);
+        top: calc((50vh) - 145px);
+        border: 5px solid darkblue;
+        border-radius: 5px;
+        
+    }
+/* HAAR */
+    .haar{
+        width: 86%;
+        height: 84%;
+        background-color: #7a257a;
+        left: 7%;
+        right: 7%;
+        border-radius: 80px 80px 20px 20px;
+       
+        
+    }
+    
+        .froe {
+            width: 88%;
+            height: 24%;
+            /*background-color: #621e62;*/
+            z-index: 5;
+            border-radius: 180px 180px 0 0;
+            left: 6%;
+            background: linear-gradient(45deg, white 25%,
+            #8b0 25%, #8b0 50%, 
+            white 50%, white 75%, 
+            #8b0 75%);
+            background: repeating-linear-gradient(90deg, #994d9e, #994d9e 5px, #8f459a 5px, #8f459a 15px);
+            box-shadow: 0px 10px 3px rgb(0,0,0,0.1);
+    
+    
+        }
+    
+        .nek{
+            width: 28%;
+            height: 33%;
+            left:36%; /* calc(50%-width) */
+            top: 80%;
+        }
+    
+        .appel{
+            width: 8%;
+            height: 8%;
+            border-radius: 30px;
+            border: 5px solid #646565;
+            top: 98%;
+            left: 44%;
+            border-bottom: transparent;
+            border-left: transparent;
+            opacity: 10%;
+        }
+    
+        .kin{
+            width: 18%;
+            height: 8%;
+            background-color: #646565;
+            border-radius: 2px 2px 20px 20px;
+            z-index: 6;
+            left: 40%;
+            top:75%;
+            opacity: 10%;
+        }
+/* HOOFD */
+    .hoofd{
+        width: 73%;
+        height: 83%;
+        border-radius: 40px 40px 150px 150px;
+        left: 13%;
+        top: 6%;
+    }
+    
+        .hoofd, .nek {
+            background-color: #f2c0ce;
+        }
+/* OREN */
+    .oorLinks, .oorRechts{
+        width: 6%;
+        height: 8%;
+        top: 32%;
+        border: 10px solid #f2c0ce;    
+        background-color: #e4b7c3;
+    }
+
+        .oorRechts{
+            right: -8%;
+            border-radius: 0px 15px 15px 0px;
+            border-left: transparent;
+
+        }
+
+        .oorLinks{
+            left: -8%;
+            border-radius: 15px 0px 0px 15px;
+            border-right: transparent;
+
+        }
+        
+        .oorlelLinks{
+            
+        width: 50%;
+        height: 50%;
+        background-color: black;
+        border-radius: 15px;
+        top: 120%;
+        left: -20%;
+        border: 6px solid #f2c0ce;
+
+        }
+/* OGEN */ 
+    .oog{
+      position: absolute;
+      width: 16%;
+      height: 12%;
+      background-color: white;
+      border-left: 1px dashed red;
+      border-right: 1px dashed red;
+      border-top: 6px solid black;
+      box-shadow: 0px 15px 25px #e2a1b8;
+
+      top: 25%;
+      z-index: 1;
+    }
+
+    .oogLinks{
+        border-radius: 0 30px;
+        transform: rotate(-20deg);
+   
+        left: 26%;
+    }
+  
+    .oogRechts{
+        border-radius: 30px 0;
+        transform: rotate(20deg);
+        right: 26%;
+    }
+
+    .iris {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: black;
+      left: 50%;
+      top: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      transition: all 0.420s ease;
+    
+      z-index: 10;
+    }
+/* LIPPEN */ 
+    .lippen{
+        width: 50%;
+        height: 14%;
+        top:65%;
+        left: 25%;
+
+
+    }
+
+        .onderlip {
+            width: 40%;
+            height: 50%;
+            background-color: red;
+            bottom: 0px;
+            border-radius: 0 0 20px 20px;
+            left: 30%;
+        }
+
+        .bovenlipLinks {
+            width: 20%;
+            height: 50%;
+            background-color: darkred;
+            border-radius: 40px 20px 0 0;
+            top: 0;
+            left: 30%;
+
+        }
+
+        .bovenlipRechts {
+
+            width: 20%;
+            height: 50%;
+            background-color: darkred;
+            border-radius: 20px 40px 0 0;
+            top: 0;
+            right: 30%;
+        }
+/* NEUS */
+    .neus{
+        width: 25%;
+        height: 60%;
+        left: 38%;
+
+    }
+        .neusgatRechts, .neusgatLinks{
+
+            width: 12%;
+            height: 4%;
+            background-color: #d1abb6;
+            border-radius: 10px 10px 0px 0px;
+            top: 90%;
+
+        }
+
+            .neusgatRechts{
+                right: 25%;
+
+
+            }
+
+            .neusgatLinks{
+                left: 25%;
+
+
+            }
+
+            .neusHighlight{
+
+                height: 35%;
+                width: 20%;
+                background-color: white;
+                border-radius: 0 0 40px 40px;
+                background-color: #646565;
+                opacity: 20%;   
+                left: 40%;
+                top: 65px;
+                opacity: 10%;
+
+            }
+/* KAKEN */ 
+    .kaken{
+        width: 100%;    
+        height: 18%;
+        top: 52%;
+        opacity: 10%;
+    }
+
+        .kaakLinks, .kaakRechts{
+            width: 20%;
+            height: 100%;
+            border-radius: 30px;    
+            background-color: #646565;
+        }
+
+        .kaakLinks
+        {
+            left: 10%;
+
+        }
+
+        .kaakRechts{
+            right: 10%;
+
+        }
+
+/* BEWEEG OGEN MET MUIS CODE */     
+    .oogLinksHoverBox , .oogRechtsHoverBox{
+        width: 16%;
+        height: 12%;
+        top: 25%;
+
+        z-index:12;
+    }
+
+    .oogLinksHoverBox{
+        left: 26%;
+        /*---*/
+    }
+
+    .oogRechtsHoverBox{
+        right: 26%;
+        /*---*/
+    }
+
+    /* Aanmaken HoverGrid */ 
+        .hitbox {
+            height:33%;
+            width:33%;
+  
+            z-index: 11;
+        }   
+
+        .aaa
+        {
+          left: 0%;
+        }
+        
+        .bbb{
+          left: 33%;
+        }
+        
+        .ccc{
+          left: 66%;
+        }
+        
+        .one{
+          top: 0%;
+        }
+        
+        .two{
+          top: 33%;
+        }
+        
+        .three{
+          top: 66%;
+        }
+    
+    /* HoverResultPosition bepalen */ 
+        .gridTopLeft:hover ~ .oogH > .iris{
+            top:45%;
+            left: 25%;
+        }
+    
+        .gridMidLeft:hover ~  .oogH > .iris{
+            top: 60%;
+            left: 20%;
+        }
+    
+        .gridBottomLeft:hover ~ .oogH > .iris{
+            top:70%;
+            left: 30%;
+        } 
+    
+        .gridTop:hover ~ .oogH > .iris{
+            top:35%;
+            left: 50%;
+        } 
+    
+        .gridMid:hover ~ .oogLinksHoverBox > .iris{
+            width: 30%;
+            height: 40%;
+            
+            top:80%;
+            left: 95%;            
+            background: linear-gradient(69deg, rgba(205,171,228,1) 20%, rgba(45,253,172,1) 100%);
+        } 
+
+        .gridMid:hover ~ .oogRechtsHoverBox > .iris{
+            width: 30%;
+            height: 40%;
+        
+            top:80%;
+            left: 15%;
+            background: linear-gradient(69deg, rgba(45,253,172,1) 20%,rgba(205,171,228,1)  100%);
+        }
+        .gridBottom:hover ~ .oogH > .iris{
+            top:85%;
+            left: 50%;
+        } 
+    
+        .gridTopRight:hover ~ .oogH > .iris{
+            top:45%;
+            left: 75%;
+        } 
+    
+        .gridMidRight:hover ~ .oogH > .iris{
+            top:60%;
+            left: 75%;
+        } 
+    
+        .gridBottomRight:hover ~ .oogH > .iris{
+            top:70%;
+            left: 70%;
+        } 
+
+/*  ANIMATION */ 
+    /*
+    animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+
+    animation: draai 3s linear 1s 8 alternate forwards running;
+
+    @keyframes draai{
+        0% {
+            opacity: 1;
+            transform: rotate(0deg);
+            }
+        
+        100%{
+            opacity: 0;
+            transform:  rotate(360deg);
+            } 
+        
+    } */

@@ -3,6 +3,7 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 body {
     font-family: 'Poppins', sans-serif;
     background: url(/img/paint270.jpg) no-repeat center center fixed;
@@ -72,6 +73,7 @@ a:focus {
     border-right: 1px solid #d89933;
     border-bottom: 4px solid #d89933;
     box-shadow: 3px 0px 1px 0px rgba(199,135,6,1);
+
     
 }
 
@@ -116,6 +118,10 @@ a:focus {
     color: #ffbb33;
     background: #333;
     text-shadow: 2px 2px 0px black;
+}
+
+#skillSubMenu .row a:hover {
+    border-radius: 33%;
 }
 
 
@@ -193,6 +199,38 @@ a.article:hover {
     color: #fff !important;
 }
 
+#skillSubMenu{
+  width: 100%;
+  background: #ffcc44;
+  padding: 35px;
+}
+
+#skillSubMenu .row{
+
+}
+
+.galleryLearned{
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.iconsLearned img{
+  width: 100%;
+  height: 100%;
+  filter: invert(1);
+  max-height: 58px;
+}
+
+.iconsLearned{
+  width: 32%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -224,7 +262,7 @@ a.article:hover {
     MEDIAQUERIES (bootstrap 768px sm )
 ----------------------------------------------------- */
 .overlay{
-      width: 100vw; 
+      width: 95%; 
       height: 100%;
       padding-top: 15%;
       /*padding-top: 25%;*/
@@ -364,13 +402,16 @@ form {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  /*background: #ffbb33; */
-  background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%);
-  border-radius:15px;
-  border: 1px solid #333;
+    background: #ffbb33;
+    /* background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%); */
+    border-radius: 15px;
+    border: 1px solid #d89933;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%);
+   /*background: linear-gradient(0deg, rgba(255,0,238,1) 0%, rgba(255,187,51,1) 70%);*/
+   background: #333;
+   border: 1px solid #ffbb33;
 }
+

@@ -1,0 +1,56 @@
+nav {
+  width: 100vw;
+  height: 50px;
+  background-color: yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+nav:nth-of-type(2) {
+  width: 100vw;
+  height: 35px;
+  background-color: green;
+  position: absolute;
+  top: 50px;
+}
+
+.row > .col-1 {
+  height: 100%;
+  border: 2px dashed black;
+  border-top: 0;
+}
+
+.row:nth-of-type(2) > .col-1 {
+  border-bottom: 0;
+}
+
+.row > .col-1:last-of-type {
+  border-right: 0;
+}
+
+.content {
+  width: 100%;
+  position: absolute;
+  top: 85px;
+}
+
+nav:nth-of-type(1) .col-1 img {
+  width: 100%;
+  max-height: 45px;
+}
+
+nav:nth-of-type(2) .col-1 img {
+  width: 100%;
+  max-height: 30px;
+}
+
+iframe {
+  width: 100vw;
+  height: 90vh;
+  display: block;
+  position: fixed;
+  top: 85px;
+  left: 0px;
+}
+
+/*# sourceMappingURL=style.css.map */

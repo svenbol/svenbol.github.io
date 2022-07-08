@@ -1,0 +1,290 @@
+/*________________________ Vars _______________________ */
+/*_________________________ Grouped Vars _______________ */
+.colorMainz, nav {
+  background: #ffb3ba;
+  background: linear-gradient(0deg, #ffb3ba 25%, #e1aae1 75%);
+}
+
+h1, h2 {
+  text-shadow: 2px 2px #808090;
+  font-style: italic;
+  color: #babaff;
+}
+
+h3, h4, h5 {
+  color: #ffb3ba;
+  font-weight: bold;
+}
+
+/*________________________ BORDERS buttons _____________ */
+#galleryMeal > #galleryItem, .roundedz, #pickerWeek .row {
+  border: 5px ridge #babaff;
+}
+
+#galleryItem > #galleryLink > #galleryItemImg, #pickerWeek .row:nth-of-type(2) > .col-3 > a > img {
+  border: 5px outset #babaff;
+  border: 5px inset #aaaaff;
+}
+
+#galleryItem > #galleryLink > #galleryItemImg:hover, #pickerWeek .row:nth-of-type(2) > .col-3 > a > img:hover {
+  border: 5px outset #ffb3ba;
+  border: 5px inset #babaff;
+}
+
+.pickerDayImg {
+  border: 5px outset #babaff;
+  border: 5px inset #babaff;
+}
+
+#pickerWeek .row {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+#pickerWeek h5 {
+  text-shadow: 2px 2px 1px #808090;
+}
+
+/*_________________________ COLOR THEMES shadows ________________ */
+body {
+  background: #babaff;
+  color: #ffb3ba;
+}
+
+.roundedz, #pickerWeek .row {
+  background: #ffb3ba;
+  color: #baffc8;
+}
+
+/* _________________________ MAIN ________________________ */
+body {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Indie Flower";
+}
+
+.main {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: 135px;
+}
+
+.main > * {
+  max-width: 800px;
+}
+
+nav {
+  height: 135px;
+  width: 100%;
+  min-width: 790px;
+  position: fixed;
+  top: 0px;
+  z-index: 1000;
+  border-bottom: 5px ridge #babaff;
+}
+
+.navImg {
+  height: 180px;
+  min-width: 250px;
+  max-width: 500px;
+}
+
+h6, h7 {
+  color: #babaff;
+  font-size: 15px;
+}
+
+/* _________________________ PICKERDAY ___________________ */
+#pickerDay h5 {
+  border-bottom: 5px ridge #babaff;
+  padding-left: 15px;
+  font-style: italic;
+  background-color: #646496;
+}
+
+#pickerDay .borderTop {
+  border-top: 5px ridge #babaff;
+}
+
+#pickerDay li {
+  font-size: 18px;
+}
+
+/* _________________________ PICKERWEEK __________________ */
+#pickerWeek .row {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#pickerWeek .row:nth-of-type(1) {
+  height: 85px;
+  border-top: 0px;
+}
+
+#pickerWeek .row:nth-of-type(2) {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+#pickerWeek .row:nth-of-type(2) > div > a:hover {
+  text-decoration-color: #babaff;
+}
+
+#pickerWeek img {
+  max-height: 135px;
+  min-height: 135px;
+  border: 2px solid #babaff;
+  border-radius: 50%;
+}
+
+#pickerWeek p {
+  color: #ffffba;
+  font-size: 15px;
+}
+
+#pickerWeek h1 {
+  font-weight: bold;
+}
+
+#pickerWeek h5 {
+  color: #babaff;
+}
+
+#pickerWeek hr {
+  border: 2px outset #babaff;
+}
+
+/* _________________________ UPLOAD ______________________ */
+/* _________________________ GALLERY _____________________ */
+#galleryItem {
+  height: 300px;
+}
+
+/* _________________________ DETAIL ______________________ */
+#detail > img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+#detail > * {
+  height: 80px;
+}
+
+.invertImg img {
+  filter: invert(1);
+}
+
+.invertImg > a:hover {
+  box-shadow: 0px 0px 5px black;
+}
+
+/*__________________________ UPLOADMEAL __________________ */
+/*__________________________ GALLERYMEAL __________________ */
+#galleryMeal > #galleryItem > #galleryLink > #galleryItemId {
+  background-color: #ffb3ba;
+}
+
+#galleryItem > #galleryLink > #galleryItemImg {
+  width: 180px;
+  min-height: 180px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/*__________________________ DETAILMEAL __________________ */
+i {
+  font-size: 15px;
+  color: #ffffba;
+  background: #baffc8;
+  border-radius: 5;
+}
+
+/* _________________________ BOLSTRAP ____________________ */
+.leftInline {
+  display: inline-block;
+  vertical-align: top;
+  float: left;
+}
+
+.rightInline {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+
+.centerInline {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 auto;
+}
+
+.paddingSm {
+  padding: 1%;
+}
+
+.paddingMd {
+  padding: 2%;
+}
+
+.paddingLg {
+  padding: 5%;
+}
+
+.marginSm {
+  margin: 1%;
+}
+
+.marginMd {
+  margin: 2%;
+}
+
+.marginLg {
+  margin: 5%;
+}
+
+.w-20 {
+  width: 19.5%;
+  max-width: 19.5%;
+}
+
+.w-30 {
+  width: 29.5%;
+  max-width: 29.5%;
+}
+
+.w-33 {
+  width: 32.5%;
+  max-width: 32.5%;
+}
+
+.w-66 {
+  width: 65.5%;
+  max-width: 65.5%;
+}
+
+.w-70 {
+  width: 69.5%;
+  max-width: 69.5%;
+}
+
+.w-80 {
+  width: 79.5%;
+  max-width: 79.5%;
+}
+
+.w-99 {
+  width: 32.5%;
+  max-width: 32.5%;
+}
+
+.roundedz {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+/*# sourceMappingURL=style.css.map */
