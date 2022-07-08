@@ -26,13 +26,21 @@
 
 //Heroku 
 
-//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$user  = "skJJZ961vs";
+$dbname = "skJJl961vs";
+$pass = "x0RB1dkX6h";
+$server = "remotemysql.com";
+$port =	"3306";
 
+$con = new mysqli($server,$user,$pass,$db);
+
+//$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+/*
 $server = "postgres://inxmshuupeoyxo:f11bd96c6de474b35577cd6b470552c5d567efdd3e7c9599211b3d2d6c24528e@ec2-54-86-57-171.compute-1.amazonaws.com:5432/d2etsfdv58166o"; //$url["host"];
 $username = "inxmshuupeoyxo"; // $url["user"];
 $password = "f11bd96c6de474b35577cd6b470552c5d567efdd3e7c9599211b3d2d6c24528e"; //$url["pass"];
 $db = "d2etsfdv58166o"; //substr($url["path"]);
 
 $conn = new mysqli($server,$username,$password,$db);
-
+*/
 ?>
