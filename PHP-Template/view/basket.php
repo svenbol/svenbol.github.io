@@ -19,7 +19,7 @@
 
 	    if(isset($_SESSION["cart"])){
 			$page = "<div id='basket' class='w-100 center bg-maison container'>";
-			$page .= "<div class='row mb-4 shade'>
+			$page .= "<div class='row shade'>
 						<h4 class='center col-1 pt-3'> IMG </h4>
 						<h4 class='center col-3 pt-3'> NAME </h4>
 						<h4 class='center col-3 pt-3'> AMOUNT </h4>
@@ -49,7 +49,7 @@
 			$total = 0;
 			if(isset($subTotal)) foreach($subTotal as $sum) $total += $sum;
 
-			$page .= "<br>
+			$page .= "
 			<div class='row bg-black'> 
 				<a class='col-3 invertImg' href='?basketEmpty=true'><img height='35px' class='mt-3' alt='Empty Basket' src='https://icons-for-free.com/iconfiles/png/512/delete+remove+trash+trash+bin+trash+can+icon-1320073117929397588.png'></a>
 				<span class='col-6 pt-3 font-italic shade'> Please buy more!</span>
@@ -60,7 +60,7 @@
 			return $page;
 	    }else{ 
 	    	$page = "<div id='basket' class='w-100 center bg-maison container'>";
-			$page .= "<div class='row mb-4 shade'>
+			$page .= "<div class='row shade'>
 						<h4 class='center col-1 pt-3'> IMG </h4>
 						<h4 class='center col-3 pt-3'> NAME </h4>
 						<h4 class='center col-3 pt-3'> AMOUNT </h4>
