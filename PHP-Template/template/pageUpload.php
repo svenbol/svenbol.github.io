@@ -16,7 +16,7 @@ function createPage(){
 	}
 	
 	$out .="<div class='row '>
-				<input type='submit' class='col-md-4 mx-auto' name='upload'>
+				<input type='submit' class='col-md-4 mx-auto bg-black text-light' style='box-shadow:2px 2px rgb(200 50 50 / 50%), 3px 3px rgb(50 50 200 / 50%);' name='upload'>
 			</div>
 		</form>
 		</div>";

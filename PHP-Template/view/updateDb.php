@@ -6,9 +6,14 @@ function updateDb(){
 	include "connect.php";
 	include "../class/Item.class.php";
 	$i = new Item();
+<<<<<<< Updated upstream
 
 	
 		$con = new mysqli($c->server,$c->user,$c->pass,$c->db);
+=======
+	
+	$con = new mysqli($c->server,$c->user,$c->pass,$c->db);
+>>>>>>> Stashed changes
 
     if(isset($_POST['update'])){
 		$id = $_GET['updateDb'];

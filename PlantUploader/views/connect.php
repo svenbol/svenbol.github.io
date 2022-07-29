@@ -3,9 +3,9 @@
 
 $server = "remotemysql.com";
 //$server = "remotemysql.com:3306"
-$username = "GsN8DgJAZN";
-$password = "Wm5glX6EBD";
-$db = "GsN8DgJAZN";
+$username = "skJJl961vs";
+$password = "x0RB1dkX6h";
+$db = $username;
 /*
 
 $server = "sql11.freemysqlhosting.net";
