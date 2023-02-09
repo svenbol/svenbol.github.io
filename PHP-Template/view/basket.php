@@ -65,7 +65,11 @@
 						<h4 class='center col-3 pt-3'> NAME </h4>
 						<h4 class='center col-3 pt-3'> AMOUNT </h4>
 						<h4 class='center col-3 pt-3'> TOTAL </h4>
-					</div>";
+					</div>
+					<p class=''>
+						You didn't pick anything . . . 
+					</p>
+					";
 			$page .= "</div>";
 			return $page;
 	    } 

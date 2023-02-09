@@ -3,18 +3,18 @@
 return updateDb();
 
 function updateDb(){
-	include "connect.php";
+	//include "connect.php";
 	include "../class/Item.class.php";
 	$i = new Item();
-<<<<<<< Updated upstream
 
-	
-		$con = new mysqli($c->server,$c->user,$c->pass,$c->db);
-=======
-	
-	$con = new mysqli($c->server,$c->user,$c->pass,$c->db);
->>>>>>> Stashed changes
+	$server = "remotemysql.com";
+	$username = "skJJl961vs";
+	$password = "x0RB1dkX6h";
+	$db = "skJJl961vs";
+	$table = "tbl_items";
 
+	$con = new mysqli($server,$username,$password,$db);
+	
     if(isset($_POST['update'])){
 		$id = $_GET['updateDb'];
 
