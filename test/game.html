@@ -7,7 +7,11 @@
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 		<script src="https://threejs.org/build/three.min.js"></script>
-		<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+		<script src="https://github.com/mrdoob/three.js/blob/master/examples/jsm/controls/OrbitControls.js"></script>
+		<!--
+			OLD ORBITCONTROL LINK DEAD 
+			<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+		-->
 		<!--<script src="https://threejs.org/examples/js/loaders/FBXLoader.js"></script>-->
 		<!--<script src="loaders/GLTFLoader.js"></script>-->
 		<script src="js/THREEx.KeyboardState.js"></script>
@@ -539,7 +543,8 @@
 			var planeNormal = new THREE.Vector3();
 			var point = new THREE.Vector3();
 
-			var controls = new THREE.OrbitControls(camera,renderer.domElement);
+			//var controls = new THREE.OrbitControls(camera,renderer.domElement);
+			var controls = new OrbitControls(camera,renderer.domElement);
 				controls.enabled = false;
 
 
